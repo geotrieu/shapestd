@@ -1,0 +1,10 @@
+*This file is to configure the specifications of each wave.
+*The first value is the enemy name.
+*The second value is the quantity.
+*More enemies can follow in the wave, which has an enemy name and a quantity.
+*The Last number, preceeded by an exclamation mark, is the waveInterval or how sparse the blocks will spawn in the wave.
+bluerect 6 !100
+bluerect 6 !30
+goldenrect 12 !10
+bluerect 8 goldenrect 3 !10
+bluerect 50 goldenrect 50 !10

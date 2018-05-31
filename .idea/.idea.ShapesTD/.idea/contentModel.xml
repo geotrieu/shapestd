@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\GeoUser\.Rider2018.1\system\resharper-host\local\Transient\ReSharperHost\v12\SolutionCaches\_ShapesTD.-766719248.00" t="ExcludeRecursive" />
+    <e p="D:\ShapesTD" t="IncludeFlat">
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="ShapesTD" t="IncludeRecursive">
+        <e p="App.config" t="Include" />
+        <e p="BaseEnemy.cs" t="Include" />
+        <e p="BaseTower.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="DrawGraphics.cs" t="Include" />
+        <e p="Form1.cs" t="Include" />
+        <e p="Form1.Designer.cs" t="Include" />
+        <e p="Form1.resx" t="Include" />
+        <e p="GameConditions.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Pathfinding.cs" t="Include" />
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+          <e p="Resources.Designer.cs" t="Include" />
+          <e p="Resources.resx" t="Include" />
+          <e p="Settings.Designer.cs" t="Include" />
+          <e p="Settings.settings" t="Include" />
+        </e>
+        <e p="resources" t="Include">
+          <e p="bluerect.png" t="Include" />
+          <e p="coin.png" t="Include" />
+          <e p="dirt.png" t="Include" />
+          <e p="goldenrect.png" t="Include" />
+          <e p="grass.png" t="Include" />
+          <e p="heart.png" t="Include" />
+          <e p="homebase.png" t="Include" />
+          <e p="level1.dat" t="Include" />
+          <e p="levelWaves.dat" t="Include" />
+          <e p="wave.png" t="Include" />
+          <e p="yellowtow.png" t="Include" />
+        </e>
+        <e p="ShapesTD.csproj" t="IncludeRecursive" />
+        <e p="WaveHandler.cs" t="Include" />
+      </e>
+      <e p="ShapesTD.sln" t="IncludeFlat" />
+    </e>
+  </component>
+</project>
