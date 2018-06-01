@@ -14,7 +14,6 @@
         <e p="Form1.Designer.cs" t="Include" />
         <e p="Form1.resx" t="Include" />
         <e p="GameConditions.cs" t="Include" />
-        <e p="MouseHandler.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive" />
         <e p="Pathfinding.cs" t="Include" />
         <e p="Program.cs" t="Include" />
@@ -29,17 +28,21 @@
           <e p="bluecircle.png" t="Include" />
           <e p="bluerect.png" t="Include" />
           <e p="bluetri.png" t="Include" />
+          <e p="bullettower.png" t="Include" />
           <e p="coin.png" t="Include" />
           <e p="dirt.png" t="Include" />
+          <e p="freezetower.png" t="Include" />
           <e p="grass.png" t="Include" />
           <e p="greencircle.png" t="Include" />
           <e p="greenrect.png" t="Include" />
           <e p="heart.png" t="Include" />
           <e p="homebase.png" t="Include" />
+          <e p="lasertower.png" t="Include" />
           <e p="level1.dat" t="Include" />
           <e p="levelWaves.dat" t="Include" />
           <e p="orangecircle.png" t="Include" />
           <e p="orangerect.png" t="Include" />
+          <e p="play.png" t="Include" />
           <e p="purplecircle.png" t="Include" />
           <e p="purplerect.png" t="Include" />
           <e p="redcircle.png" t="Include" />
@@ -53,6 +56,7 @@
           <e p="yellowtow.png" t="Include" />
         </e>
         <e p="ShapesTD.csproj" t="IncludeRecursive" />
+        <e p="ShopControl.cs" t="Include" />
         <e p="WaveHandler.cs" t="Include" />
       </e>
       <e p="ShapesTD.sln" t="IncludeFlat" />

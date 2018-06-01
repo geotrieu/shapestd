@@ -134,7 +134,7 @@ namespace ShapesTD.resources
         
         public static void waveTick()
         {
-            if (!betweenWaves)
+            if (!betweenWaves && Form1.gameStarted)
             {
                 if (interval == waveInterval)
                 {

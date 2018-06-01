@@ -1,21 +1,15 @@
 *This file is to configure the specifications of each wave.
 *The first value is the enemy name.
 *The second value is the quantity.
-*More enemies can follow in the wave, which has an enemy name and a quantity.
+*More enemies can follow in the wave, which has an enemy name and a squantity.
 *The Last number, preceeded by an exclamation mark, is the waveInterval or how sparse the blocks will spawn in the wave.
 *WARNING, ENSURE ALL WAVES ARE FORMATTED WITH NO EXTRA SPACES AT THE END, OR ANY OTHER CHARACTERS
-bluecircle 6 !100
-bluetri 3 !50
-bluerect 3 !50
-greencircle 6 !30
-greencircle 12 !10
-bluecircle 8 greencircle 3 !10
-bluecircle 10 greencircle 10 yellowcircle 10 !50
-orangecircle 5 redcircle 5 greencircle 6 !15
-greencircle 15 redcircle 6 purplecircle 1 !10
-orangecircle 6 purplecircle 10 yellowcircle 10 !10
-purplecircle 5 bluecircle 5 purplecircle 5 orangecircle 6 !20
-redcircle 5 purplecircle 5 whitecircle 1 purplecircle 5 redcircle 5 !20
-orangecircle 5 !10
-yellowcircle 10000 !1
-yellowcircle 100 !300
+bluecircle 10 !50
+bluecircle 20 !50
+bluecircle 10 greencircle 10 !40
+greencircle 20 yellowcircle 10 !30
+yellowcircle 20 orangecircle 10 !20
+orangecircle 20 redcircle 10 !20
+redcircle 20 purplecircle 10 !20
+bluecircle 100 whitecircle 1 bluecircle 100 !10
+purplecircle 100 !1000

@@ -38,6 +38,7 @@ namespace ShapesTD
         public static Image heart = Image.FromFile("../../resources/heart.png");
         public static Image coin = Image.FromFile("../../resources/coin.png");
         public static Image waveImg = Image.FromFile("../../resources/wave.png");
+        public static Image start = Image.FromFile("../../resources/play.png");
         public static Font defFont = new Font(FontFamily.GenericMonospace, 10);
         public static Font bigFont = new Font(FontFamily.GenericMonospace, 100);
 
@@ -57,18 +58,17 @@ namespace ShapesTD
         public static int cash = 200;
         public static int wave = 0;
         public static int totalWaves = 0;
-
-        //Backend Objects
-        private MouseHandler mh;
+        public static bool gameStarted = false;
+        
+        //Mouse Variables
+        public static int mouseX = 0;
+        public static int mouseY = 0;
         
         public Form1()
         {
             InitializeComponent();
             this.ClientSize = new Size(width * 32, height * 32);
             this.Show();
-
-            //Initialize Mouse Pointer
-            //mh = new MouseHandler(PointToClient(Cursor.Position));
             
             if (!InitLevel(1))
             {
@@ -76,11 +76,11 @@ namespace ShapesTD
             }
 
             //TEMP Create a tower
-            towers.Add(new BaseTower(yellowtow, new Point(96, 64)));
-            towers.Add(new BaseTower(yellowtow, new Point(128, 192)));
-            towers.Add(new BaseTower(yellowtow, new Point(256, 64)));
-            towers.Add(new BaseTower(yellowtow, new Point(512 - 32, 64)));
-            towers.Add(new BaseTower(bluerect, new Point(512 - 64, 256), 4, 3, 110));
+            /*towers.Add(new BaseTower(yellowtow, 96, 64));
+            towers.Add(new BaseTower(yellowtow, 128, 192));
+            towers.Add(new BaseTower(yellowtow, 256, 64));
+            towers.Add(new BaseTower(yellowtow, 512 - 32, 64));
+            towers.Add(new BaseTower(bluerect, 512 - 64, 256, 4, 3, 100));*/
             
             //Load Waves
             WaveHandler.loadWaveData();
@@ -141,6 +141,84 @@ namespace ShapesTD
             }
 
             return true;
+        }
+
+        public static string pickedUp = null;
+
+        private void Form1_MouseHover(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_MouseMove(object sender, MouseEventArgs e)
+        {
+            mouseX = e.X;
+            mouseY = e.Y;
+        }
+
+        private void Form1_MouseClick(object sender, MouseEventArgs e)
+        {
+            //Click Controllers
+            if (mouseX >= ShopControl.yellowTow.X && mouseX <= (ShopControl.yellowTow.X + 31))
+            {
+                if (mouseY >= ShopControl.yellowTow.Y && mouseY <= (ShopControl.yellowTow.Y + 31))
+                {
+                    if (pickedUp == null)
+                    {
+                        if (cash >= 100)
+                        {
+                            pickedUp = "yellowtow";
+                            return;
+                        }
+                    }
+                }
+            }
+            if (mouseX >= ShopControl.startButton.X && mouseX <= (ShopControl.startButton.X + 15))
+            {
+                if (mouseY >= ShopControl.startButton.Y && mouseY <= (ShopControl.startButton.Y + 15))
+                {
+                    if (gameStarted == false)
+                    {
+                        gameStarted = true;
+                    }
+                }
+            }
+
+            //PickedUp Controller
+            if (pickedUp != null)
+            {
+                int tileX = mouseX / 32;
+                int tileY = mouseY / 32;
+                bool valid = true;
+                if (levelMap[tileX, tileY] != '0')
+                {
+                    valid = false;
+                }
+                foreach (BaseTower bt in towers)
+                {
+                    if (bt.getLocation().X == (tileX * 32))
+                    {
+                        if (bt.getLocation().Y == (tileY * 32))
+                        {
+                            valid = false;
+                            break;
+                        }
+                    }
+                }
+
+                if (valid)
+                {
+                    BaseTower bt = null;
+                    if (pickedUp == "yellowtow")
+                    {
+                        bt = new BaseTower(yellowtow, tileX * 32, tileY * 32);
+                        towers.Add(bt);
+                    }
+
+                    pickedUp = null;
+                    cash -= bt.getCost();
+                }
+            }
         }
     }
 }

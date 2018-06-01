@@ -33,20 +33,20 @@ namespace ShapesTD
 
         public static void drawHealth()
         {
-            Form1.offscreen.DrawImage(Form1.heart, new Point(Form1.width * 32 - 64, 8));
-            Form1.offscreen.DrawString(Form1.health.ToString(), Form1.defFont, new SolidBrush(Color.Black), new Point(Form1.width * 32 - 45, 8));
+            Form1.offscreen.DrawImage(Form1.heart, new Point(Form1.width * 32 - 85, 8));
+            Form1.offscreen.DrawString(Form1.health.ToString(), Form1.defFont, new SolidBrush(Color.Black), new Point(Form1.width * 32 - 65, 8));
         }
 
         public static void drawCash()
         {
-            Form1.offscreen.DrawImage(Form1.coin, new Point(Form1.width * 32 - 64, 40));
-            Form1.offscreen.DrawString("$" + Form1.cash, Form1.defFont, new SolidBrush(Color.Black), new Point(Form1.width * 32 - 45, 40));
+            Form1.offscreen.DrawImage(Form1.coin, new Point(Form1.width * 32 - 85, 40));
+            Form1.offscreen.DrawString("$" + Form1.cash, Form1.defFont, new SolidBrush(Color.Black), new Point(Form1.width * 32 - 65, 40));
         }
         
         public static void drawWave()
         {
-            Form1.offscreen.DrawImage(Form1.waveImg, new Point(Form1.width * 32 - 64, 72));
-            Form1.offscreen.DrawString("#" + (Form1.wave + 1), Form1.defFont, new SolidBrush(Color.Black), new Point(Form1.width * 32 - 45, 72));
+            Form1.offscreen.DrawImage(Form1.waveImg, new Point(Form1.width * 32 - 85, 72));
+            Form1.offscreen.DrawString("#" + (Form1.wave + 1), Form1.defFont, new SolidBrush(Color.Black), new Point(Form1.width * 32 - 65, 72));
         }
 
         public static void drawPopUpWave()
@@ -54,16 +54,10 @@ namespace ShapesTD
             Form1.offscreen.DrawString("Wave " + (Form1.wave + 1), Form1.bigFont, new SolidBrush(Color.Black), new Point(Form1.width * 32 / 2 - 100, 275));
         }
 
-        public static void drawShop()
-        {
-            Form1.offscreen.DrawImage(Form1.yellowtow, new Point(32, Form1.height * 32 - 48));
-            Form1.offscreen.DrawString("100$", Form1.defFont, new SolidBrush(Color.White), new Point(30, Form1.height * 32 - 16));
-        }
-
         public static void drawDebug()
         {
-            Form1.offscreen.DrawString("X: " + MouseHandler.getX(), Form1.defFont, new SolidBrush(Color.White), new Point(Form1.width * 32 - 96, Form1.height * 32 - 64));
-            Form1.offscreen.DrawString("Y: " + MouseHandler.getX(), Form1.defFont, new SolidBrush(Color.White), new Point(Form1.width * 32 - 96, Form1.height * 32 - 48));
+            Form1.offscreen.DrawString("X: " + Form1.mouseX, Form1.defFont, new SolidBrush(Color.White), new Point(Form1.width * 32 - 96, Form1.height * 32 - 64));
+            Form1.offscreen.DrawString("Y: " + Form1.mouseY, Form1.defFont, new SolidBrush(Color.White), new Point(Form1.width * 32 - 96, Form1.height * 32 - 48));
         }
         
         public static void drawEveryTick()
@@ -73,7 +67,8 @@ namespace ShapesTD
 
             //Draw Level
             drawMap();
-            drawShop();
+            ShopControl.drawShop();
+            ShopControl.drawCursorPickup();
             //Draw Overlays
             drawHealth();
             drawCash();
@@ -82,6 +77,11 @@ namespace ShapesTD
             //Draw Debug
             drawDebug();
 
+            foreach (BaseTower bt in Form1.towers)
+            {
+                bt.drawRadius(ref Form1.offscreen);
+            }
+            
             foreach (BaseEnemy be in Form1.enemies)
             {
                 be.drawEnemy(ref Form1.offscreen);
@@ -89,7 +89,6 @@ namespace ShapesTD
 
             foreach (BaseTower bt in Form1.towers)
             {
-                bt.drawRadius(ref Form1.offscreen);
                 bt.drawTower(ref Form1.offscreen);
             }
 

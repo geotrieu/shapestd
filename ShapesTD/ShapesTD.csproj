@@ -55,10 +55,10 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="GameConditions.cs" />
-    <Compile Include="MouseHandler.cs" />
     <Compile Include="Pathfinding.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShopControl.cs" />
     <Compile Include="WaveHandler.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -90,16 +90,20 @@
     <Content Include="resources\bluecircle.png" />
     <Content Include="resources\bluerect.png" />
     <Content Include="resources\bluetri.png" />
+    <Content Include="resources\bullettower.png" />
     <Content Include="resources\coin.png" />
     <Content Include="resources\dirt.png" />
+    <Content Include="resources\freezetower.png" />
     <Content Include="resources\grass.png" />
     <Content Include="resources\greencircle.png" />
     <Content Include="resources\greenrect.png" />
     <Content Include="resources\heart.png" />
     <Content Include="resources\homebase.png" />
+    <Content Include="resources\lasertower.png" />
     <Content Include="resources\levelWaves.dat" />
     <Content Include="resources\orangecircle.png" />
     <Content Include="resources\orangerect.png" />
+    <Content Include="resources\play.png" />
     <Content Include="resources\purplecircle.png" />
     <Content Include="resources\purplerect.png" />
     <Content Include="resources\redcircle.png" />

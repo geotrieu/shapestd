@@ -101,6 +101,13 @@ namespace ShapesTD
             offscreen.DrawRectangle(new Pen(Color.Black), loc.X + 1, loc.Y - 9, 30, 6);
             offscreen.FillRectangle(new SolidBrush(Color.Red), loc.X + 2, loc.Y - 8, 28, 4);
             offscreen.FillRectangle(new SolidBrush(Color.LimeGreen), loc.X + 2, loc.Y - 8, (int) (28 * health / maxHealth), 4);
+            //Debug
+            /*
+            offscreen.FillEllipse(new SolidBrush(Color.Blue), loc.X, loc.Y, 6, 6);
+            offscreen.FillEllipse(new SolidBrush(Color.Blue), loc.X + 31, loc.Y, -6, 6);
+            offscreen.FillEllipse(new SolidBrush(Color.Blue), loc.X + 31, loc.Y + 31, -6, -6);
+            offscreen.FillEllipse(new SolidBrush(Color.Blue), loc.X, loc.Y + 31, 6, -6);
+            */
         }
     }
 }
