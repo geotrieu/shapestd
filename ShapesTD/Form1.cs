@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using ShapesTD.resources;
 
 namespace ShapesTD
@@ -22,14 +23,23 @@ namespace ShapesTD
         public static Graphics offscreen;
         public static Image grass = Image.FromFile("../../resources/grass.png");
         public static Image dirt = Image.FromFile("../../resources/dirt.png");
+        public static Image steel = Image.FromFile("../../resources/steel.png");
+        public static Image bluecircle = Image.FromFile("../../resources/bluecircle.png");
+        public static Image greencircle = Image.FromFile("../../resources/greencircle.png");
+        public static Image yellowcircle = Image.FromFile("../../resources/yellowcircle.png");
+        public static Image orangecircle = Image.FromFile("../../resources/orangecircle.png");
+        public static Image redcircle = Image.FromFile("../../resources/redcircle.png");
+        public static Image purplecircle = Image.FromFile("../../resources/purplecircle.png");
+        public static Image whitecircle = Image.FromFile("../../resources/whitecircle.png");
+        public static Image bluetri = Image.FromFile("../../resources/bluetri.png");
         public static Image bluerect = Image.FromFile("../../resources/bluerect.png");
-        public static Image goldenrect = Image.FromFile("../../resources/goldenrect.png");
         public static Image yellowtow = Image.FromFile("../../resources/yellowtow.png");
         public static Image homebase = Image.FromFile("../../resources/homebase.png");
         public static Image heart = Image.FromFile("../../resources/heart.png");
         public static Image coin = Image.FromFile("../../resources/coin.png");
         public static Image waveImg = Image.FromFile("../../resources/wave.png");
         public static Font defFont = new Font(FontFamily.GenericMonospace, 10);
+        public static Font bigFont = new Font(FontFamily.GenericMonospace, 100);
 
         //Entities
         public static ArrayList enemies = new ArrayList();
@@ -37,7 +47,7 @@ namespace ShapesTD
 
         //Level Specs
         public static int width = 20;
-        public static int height = 12;
+        public static int height = 14;
         public static char[,] levelMap = new char[width, height];
         public static Point startPos = new Point(0, 32);
         public static ArrayList waves = new ArrayList();
@@ -48,22 +58,29 @@ namespace ShapesTD
         public static int wave = 0;
         public static int totalWaves = 0;
 
+        //Backend Objects
+        private MouseHandler mh;
+        
         public Form1()
         {
             InitializeComponent();
             this.ClientSize = new Size(width * 32, height * 32);
             this.Show();
 
+            //Initialize Mouse Pointer
+            //mh = new MouseHandler(PointToClient(Cursor.Position));
+            
             if (!InitLevel(1))
             {
                 Console.WriteLine("Level 1 failed to initialize.");
             }
 
             //TEMP Create a tower
-            //towers.Add(new BaseTower(yellowtow, new Point(96, 64)));
+            towers.Add(new BaseTower(yellowtow, new Point(96, 64)));
             towers.Add(new BaseTower(yellowtow, new Point(128, 192)));
-            //towers.Add(new BaseTower(yellowtow, new Point(256, 64)));
+            towers.Add(new BaseTower(yellowtow, new Point(256, 64)));
             towers.Add(new BaseTower(yellowtow, new Point(512 - 32, 64)));
+            towers.Add(new BaseTower(bluerect, new Point(512 - 64, 256), 4, 3, 110));
             
             //Load Waves
             WaveHandler.loadWaveData();

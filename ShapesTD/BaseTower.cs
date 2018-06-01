@@ -50,9 +50,35 @@ namespace ShapesTD
                     int yDiff = Math.Abs(loc.Y - be.getLocation().Y);
                     if (Math.Pow(radius, 2) >= (Math.Pow(xDiff, 2) + Math.Pow(yDiff, 2)))
                     {
-                        be.setHealth(be.getHealth() - 7);
+                        be.setHealth(be.getHealth() - damage);
+                        Form1.cash++;
                         break;
                     }
+                    xDiff = Math.Abs(loc.X - be.getLocation().X + 31);
+                    yDiff = Math.Abs(loc.Y - be.getLocation().Y);
+                    if (Math.Pow(radius, 2) >= (Math.Pow(xDiff, 2) + Math.Pow(yDiff, 2)))
+                    {
+                        be.setHealth(be.getHealth() - damage);
+                        Form1.cash++;
+                        break;
+                    }
+                    xDiff = Math.Abs(loc.X - be.getLocation().X + 31);
+                    yDiff = Math.Abs(loc.Y - be.getLocation().Y + 31);
+                    if (Math.Pow(radius, 2) >= (Math.Pow(xDiff, 2) + Math.Pow(yDiff, 2)))
+                    {
+                        be.setHealth(be.getHealth() - damage);
+                        Form1.cash++;
+                        break;
+                    }
+                    xDiff = Math.Abs(loc.X - be.getLocation().X);
+                    yDiff = Math.Abs(loc.Y - be.getLocation().Y + 31);
+                    if (Math.Pow(radius, 2) >= (Math.Pow(xDiff, 2) + Math.Pow(yDiff, 2)))
+                    {
+                        be.setHealth(be.getHealth() - damage);
+                        Form1.cash++;
+                        break;
+                    }
+                    //else there is no collision
                 }
 
                 cycle = 0;
@@ -70,7 +96,7 @@ namespace ShapesTD
 
         public void drawRadius(ref Graphics offscreen)
         {
-            offscreen.FillEllipse(new SolidBrush(Color.FromArgb(150, 255, 51, 0)), (loc.X + 16 - radius), (loc.Y + 16 - radius), radius * 2, radius * 2);
+            offscreen.FillEllipse(new SolidBrush(Color.FromArgb(175, 255, 51, 0)), (loc.X + 16 - radius), (loc.Y + 16 - radius), radius * 2, radius * 2);
         }
     }
 }

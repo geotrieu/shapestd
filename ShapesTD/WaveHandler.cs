@@ -140,13 +140,41 @@ namespace ShapesTD.resources
                 {
                     if (remainingQuantity > 0)
                     {
-                        if (currentEnemy == "bluerect")
+                        if (currentEnemy == "bluecircle")
                         {
-                            Form1.enemies.Add(new BaseEnemy(Form1.bluerect, Form1.startPos, 10));
+                            Form1.enemies.Add(new BaseEnemy(Form1.bluecircle, Form1.startPos, 5));
                         }
-                        else if (currentEnemy == "goldenrect")
+                        else if (currentEnemy == "greencircle")
                         {
-                            Form1.enemies.Add(new BaseEnemy(Form1.goldenrect, Form1.startPos, 30, 2, 2));
+                            Form1.enemies.Add(new BaseEnemy(Form1.greencircle, Form1.startPos, 10, 2, 2));
+                        }
+                        else if (currentEnemy == "yellowcircle")
+                        {
+                            Form1.enemies.Add(new BaseEnemy(Form1.yellowcircle, Form1.startPos, 15, 3, 3));
+                        }
+                        else if (currentEnemy == "orangecircle")
+                        {
+                            Form1.enemies.Add(new BaseEnemy(Form1.orangecircle, Form1.startPos, 20, 3, 3));
+                        }
+                        else if (currentEnemy == "redcircle")
+                        {
+                            Form1.enemies.Add(new BaseEnemy(Form1.redcircle, Form1.startPos, 25, 3, 3));
+                        }
+                        else if (currentEnemy == "purplecircle")
+                        {
+                            Form1.enemies.Add(new BaseEnemy(Form1.purplecircle, Form1.startPos, 30, 4, 3));
+                        }
+                        else if (currentEnemy == "whitecircle")
+                        {
+                            Form1.enemies.Add(new BaseEnemy(Form1.whitecircle, Form1.startPos, 600, 1, 10));
+                        }
+                        else if (currentEnemy == "bluetri")
+                        {
+                            Form1.enemies.Add(new BaseEnemy(Form1.bluetri, Form1.startPos, 40, 1, 4));
+                        }
+                        else if (currentEnemy == "bluerect")
+                        {
+                            Form1.enemies.Add(new BaseEnemy(Form1.bluerect, Form1.startPos, 100, 1, 10));
                         }
                         else
                         {
@@ -166,6 +194,7 @@ namespace ShapesTD.resources
                         waveInterval = ((WaveHandler.wave) Form1.waves[Form1.wave]).getWaveInterval();
                         currentEnemy = ((WaveHandler.wave) Form1.waves[Form1.wave]).getNextEnemy();
                         remainingQuantity = ((WaveHandler.wave) Form1.waves[Form1.wave]).getNextQuantity();
+                        DrawGraphics.drawPopUpWave();
                     }
 
                     interval = 0;

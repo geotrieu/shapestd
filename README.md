@@ -7,3 +7,4 @@ Implemented:
 - Enemies Objects and following the path
 - Tower Radius
 - Waves
+- Started on: Shop
