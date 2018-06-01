@@ -33,7 +33,8 @@ namespace ShapesTD
         public static Image whitecircle = Image.FromFile("../../resources/whitecircle.png");
         public static Image bluetri = Image.FromFile("../../resources/bluetri.png");
         public static Image bluerect = Image.FromFile("../../resources/bluerect.png");
-        public static Image yellowtow = Image.FromFile("../../resources/yellowtow.png");
+        public static Image bullettower = Image.FromFile("../../resources/bullettower.png");
+        public static Image lasertower = Image.FromFile("../../resources/lasertower.png");
         public static Image homebase = Image.FromFile("../../resources/homebase.png");
         public static Image heart = Image.FromFile("../../resources/heart.png");
         public static Image coin = Image.FromFile("../../resources/coin.png");
@@ -159,15 +160,29 @@ namespace ShapesTD
         private void Form1_MouseClick(object sender, MouseEventArgs e)
         {
             //Click Controllers
-            if (mouseX >= ShopControl.yellowTow.X && mouseX <= (ShopControl.yellowTow.X + 31))
+            if (mouseX >= ShopControl.bulletTower.X && mouseX <= (ShopControl.bulletTower.X + 31))
             {
-                if (mouseY >= ShopControl.yellowTow.Y && mouseY <= (ShopControl.yellowTow.Y + 31))
+                if (mouseY >= ShopControl.bulletTower.Y && mouseY <= (ShopControl.bulletTower.Y + 31))
                 {
                     if (pickedUp == null)
                     {
                         if (cash >= 100)
                         {
-                            pickedUp = "yellowtow";
+                            pickedUp = "bullettower";
+                            return;
+                        }
+                    }
+                }
+            }
+            if (mouseX >= ShopControl.laserTower.X && mouseX <= (ShopControl.laserTower.X + 31))
+            {
+                if (mouseY >= ShopControl.laserTower.Y && mouseY <= (ShopControl.laserTower.Y + 31))
+                {
+                    if (pickedUp == null)
+                    {
+                        if (cash >= 300)
+                        {
+                            pickedUp = "lasertower";
                             return;
                         }
                     }
@@ -189,11 +204,7 @@ namespace ShapesTD
             {
                 int tileX = mouseX / 32;
                 int tileY = mouseY / 32;
-                bool valid = true;
-                if (levelMap[tileX, tileY] != '0')
-                {
-                    valid = false;
-                }
+                bool valid = levelMap[tileX, tileY] == '0';
                 foreach (BaseTower bt in towers)
                 {
                     if (bt.getLocation().X == (tileX * 32))
@@ -209,9 +220,14 @@ namespace ShapesTD
                 if (valid)
                 {
                     BaseTower bt = null;
-                    if (pickedUp == "yellowtow")
+                    if (pickedUp == "bullettower")
                     {
-                        bt = new BaseTower(yellowtow, tileX * 32, tileY * 32);
+                        bt = new BaseTower(bullettower, tileX * 32, tileY * 32);
+                        towers.Add(bt);
+                    }
+                    else if (pickedUp == "lasertower")
+                    {
+                        bt = new BaseTower(lasertower, tileX * 32, tileY * 32, 1, 1, 30, 300, "laser");
                         towers.Add(bt);
                     }
 

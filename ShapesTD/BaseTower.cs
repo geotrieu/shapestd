@@ -16,8 +16,9 @@ namespace ShapesTD
         private int radius;
         private int cycle = 0;
         private int cost;
+        private string towerType;
 
-        public BaseTower(Image img, int locX, int locY, int shootRate = 9, int damage = 1, int radius = 50, int cost = 100)
+        public BaseTower(Image img, int locX, int locY, int shootRate = 9, int damage = 1, int radius = 50, int cost = 100, string towerType = "basic")
         {
             this.img = img;
             int tileX = locX / 32;
@@ -27,6 +28,7 @@ namespace ShapesTD
             this.damage = damage;
             this.radius = radius;
             this.cost = cost;
+            this.towerType = towerType;
         }
 
         public int getCost()

@@ -12,4 +12,12 @@ yellowcircle 20 orangecircle 10 !20
 orangecircle 20 redcircle 10 !20
 redcircle 20 purplecircle 10 !20
 bluecircle 100 whitecircle 1 bluecircle 100 !10
+greencircle 10 !2
+orangecircle 100 !20
+redcircle 100 !20
+purplecircle 100 !20
+purplecircle 100 !10
+purplecircle 9000 !1
+whitecircle 100 !50
+whitecircle 9000 !1
 purplecircle 100 !1000
