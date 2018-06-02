@@ -76,7 +76,18 @@ namespace ShapesTD
             
             //Draw Debug
             drawDebug();
-
+            
+            //Draw Laser
+            foreach (BaseTower.BasePair bp in Form1.shootingAt)
+            {
+                if (bp.GetTower().GetTowerType() == "laser")
+                {
+                    Point ptTower = new Point(bp.GetTower().getLocation().X + 15, bp.GetTower().getLocation().Y + 15);
+                    Point ptEnemy = new Point(bp.GetEnemy().getLocation().X + 15, bp.GetEnemy().getLocation().Y + 15);
+                    Form1.offscreen.DrawLine(new Pen(Color.Red), ptTower, ptEnemy);
+                }
+            }
+            
             foreach (BaseTower bt in Form1.towers)
             {
                 bt.drawRadius(ref Form1.offscreen);

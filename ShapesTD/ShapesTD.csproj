@@ -54,6 +54,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FreezeTower.cs" />
     <Compile Include="GameConditions.cs" />
     <Compile Include="Pathfinding.cs" />
     <Compile Include="Program.cs" />
@@ -97,24 +98,30 @@
     <Content Include="resources\grass.png" />
     <Content Include="resources\greencircle.png" />
     <Content Include="resources\greenrect.png" />
+    <Content Include="resources\greentri.png" />
     <Content Include="resources\heart.png" />
     <Content Include="resources\homebase.png" />
     <Content Include="resources\lasertower.png" />
     <Content Include="resources\levelWaves.dat" />
     <Content Include="resources\orangecircle.png" />
     <Content Include="resources\orangerect.png" />
+    <Content Include="resources\orangetri.png" />
     <Content Include="resources\play.png" />
     <Content Include="resources\purplecircle.png" />
     <Content Include="resources\purplerect.png" />
+    <Content Include="resources\purpletri.png" />
     <Content Include="resources\redcircle.png" />
     <Content Include="resources\redrect.png" />
+    <Content Include="resources\redtri.png" />
     <Content Include="resources\steel.png" />
     <Content Include="resources\wave.png" />
     <Content Include="resources\whitecircle.png" />
     <Content Include="resources\whiterect.png" />
+    <Content Include="resources\whitetri.png" />
     <Content Include="resources\yellowcircle.png" />
     <Content Include="resources\yellowrect.png" />
     <Content Include="resources\yellowtow.png" />
+    <Content Include="resources\yellowtri.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

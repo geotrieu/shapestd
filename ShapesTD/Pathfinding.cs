@@ -18,10 +18,11 @@ namespace ShapesTD
                 * 1: Down
                 * 2: Left
                 * 3: Up */
-                if (be.getHealth() <= 0)
+                
+                //Check if Enemy is frozen
+                if (be.IsFrozen())
                 {
-                    Form1.enemies.Remove(be);
-                    break;
+                    continue;
                 }
                 
                 for (int i = 0; i < 4; i++)

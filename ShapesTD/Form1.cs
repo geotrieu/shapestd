@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Net;
 using System.Runtime.CompilerServices;
 using ShapesTD.resources;
 
@@ -32,9 +33,22 @@ namespace ShapesTD
         public static Image purplecircle = Image.FromFile("../../resources/purplecircle.png");
         public static Image whitecircle = Image.FromFile("../../resources/whitecircle.png");
         public static Image bluetri = Image.FromFile("../../resources/bluetri.png");
+        public static Image greentri = Image.FromFile("../../resources/greentri.png");
+        public static Image yellowtri = Image.FromFile("../../resources/yellowtri.png");
+        public static Image orangetri = Image.FromFile("../../resources/orangetri.png");
+        public static Image redtri = Image.FromFile("../../resources/redtri.png");
+        public static Image purpletri = Image.FromFile("../../resources/purpletri.png");
+        public static Image whitetri = Image.FromFile("../../resources/whitetri.png");
         public static Image bluerect = Image.FromFile("../../resources/bluerect.png");
+        public static Image greenrect = Image.FromFile("../../resources/greenrect.png");
+        public static Image yellowrect = Image.FromFile("../../resources/yellowrect.png");
+        public static Image orangerect = Image.FromFile("../../resources/orangerect.png");
+        public static Image redrect = Image.FromFile("../../resources/redrect.png");
+        public static Image purplerect = Image.FromFile("../../resources/purplerect.png");
+        public static Image whiterect = Image.FromFile("../../resources/whiterect.png");
         public static Image bullettower = Image.FromFile("../../resources/bullettower.png");
         public static Image lasertower = Image.FromFile("../../resources/lasertower.png");
+        public static Image freezetower = Image.FromFile("../../resources/freezetower.png");
         public static Image homebase = Image.FromFile("../../resources/homebase.png");
         public static Image heart = Image.FromFile("../../resources/heart.png");
         public static Image coin = Image.FromFile("../../resources/coin.png");
@@ -60,6 +74,7 @@ namespace ShapesTD
         public static int wave = 0;
         public static int totalWaves = 0;
         public static bool gameStarted = false;
+        public static ArrayList shootingAt = new ArrayList();
         
         //Mouse Variables
         public static int mouseX = 0;
@@ -188,6 +203,20 @@ namespace ShapesTD
                     }
                 }
             }
+            if (mouseX >= ShopControl.freezeTower.X && mouseX <= (ShopControl.freezeTower.X + 31))
+            {
+                if (mouseY >= ShopControl.freezeTower.Y && mouseY <= (ShopControl.freezeTower.Y + 31))
+                {
+                    if (pickedUp == null)
+                    {
+                        if (cash >= 300)
+                        {
+                            pickedUp = "freezetower";
+                            return;
+                        }
+                    }
+                }
+            }
             if (mouseX >= ShopControl.startButton.X && mouseX <= (ShopControl.startButton.X + 15))
             {
                 if (mouseY >= ShopControl.startButton.Y && mouseY <= (ShopControl.startButton.Y + 15))
@@ -228,6 +257,11 @@ namespace ShapesTD
                     else if (pickedUp == "lasertower")
                     {
                         bt = new BaseTower(lasertower, tileX * 32, tileY * 32, 1, 1, 30, 300, "laser");
+                        towers.Add(bt);
+                    }
+                    else if (pickedUp == "freezetower")
+                    {
+                        bt = new FreezeTower(tileX * 32, tileY * 32);
                         towers.Add(bt);
                     }
 

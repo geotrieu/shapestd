@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ShapesTD
 {
-    class BaseEnemy
+    public class BaseEnemy
     {
         private Image image;
         private int maxHealth;
@@ -17,6 +17,7 @@ namespace ShapesTD
         private Point loc = new Point();
         private bool[,] visited = new bool[Form1.width, Form1.height];
         private int lastDir = 0;
+        private bool isFrozen = false;
 
         public BaseEnemy(Image img, Point loc, int maxHealth = 100, int speed = 1, int dmg = 1)
         {
@@ -66,6 +67,11 @@ namespace ShapesTD
         {
             return lastDir;
         }
+
+        public bool IsFrozen()
+        {
+            return isFrozen;
+        }
         
         public bool isVisited(int tileX, int tileY)
         {
@@ -91,6 +97,11 @@ namespace ShapesTD
         public void setLastDir(int i)
         {
             lastDir = i;
+        }
+
+        public void setFreeze(bool b)
+        {
+            isFrozen = b;
         }
 
         //DRAW FUNCTIONS

@@ -140,45 +140,74 @@ namespace ShapesTD.resources
                 {
                     if (remainingQuantity > 0)
                     {
-                        if (currentEnemy == "bluecircle")
+                        switch (currentEnemy)
                         {
-                            Form1.enemies.Add(new BaseEnemy(Form1.bluecircle, Form1.startPos, 5));
-                        }
-                        else if (currentEnemy == "greencircle")
-                        {
-                            Form1.enemies.Add(new BaseEnemy(Form1.greencircle, Form1.startPos, 10, 2, 2));
-                        }
-                        else if (currentEnemy == "yellowcircle")
-                        {
-                            Form1.enemies.Add(new BaseEnemy(Form1.yellowcircle, Form1.startPos, 15, 3, 3));
-                        }
-                        else if (currentEnemy == "orangecircle")
-                        {
-                            Form1.enemies.Add(new BaseEnemy(Form1.orangecircle, Form1.startPos, 20, 3, 3));
-                        }
-                        else if (currentEnemy == "redcircle")
-                        {
-                            Form1.enemies.Add(new BaseEnemy(Form1.redcircle, Form1.startPos, 25, 3, 3));
-                        }
-                        else if (currentEnemy == "purplecircle")
-                        {
-                            Form1.enemies.Add(new BaseEnemy(Form1.purplecircle, Form1.startPos, 30, 4, 3));
-                        }
-                        else if (currentEnemy == "whitecircle")
-                        {
-                            Form1.enemies.Add(new BaseEnemy(Form1.whitecircle, Form1.startPos, 600, 1, 10));
-                        }
-                        else if (currentEnemy == "bluetri")
-                        {
-                            Form1.enemies.Add(new BaseEnemy(Form1.bluetri, Form1.startPos, 40, 1, 4));
-                        }
-                        else if (currentEnemy == "bluerect")
-                        {
-                            Form1.enemies.Add(new BaseEnemy(Form1.bluerect, Form1.startPos, 100, 1, 10));
-                        }
-                        else
-                        {
-                            MessageBox.Show("Error: Type received at Form1.timerTick Wave Handler, is invalid.");
+                            case "bluecircle":
+                                Form1.enemies.Add(new BaseEnemy(Form1.bluecircle, Form1.startPos, 15));
+                                break;
+                            case "greencircle":
+                                Form1.enemies.Add(new BaseEnemy(Form1.greencircle, Form1.startPos, 30, 2, 2));
+                                break;
+                            case "yellowcircle":
+                                Form1.enemies.Add(new BaseEnemy(Form1.yellowcircle, Form1.startPos, 45, 3, 3));
+                                break;
+                            case "orangecircle":
+                                Form1.enemies.Add(new BaseEnemy(Form1.orangecircle, Form1.startPos, 60, 3, 3));
+                                break;
+                            case "redcircle":
+                                Form1.enemies.Add(new BaseEnemy(Form1.redcircle, Form1.startPos, 75, 3, 3));
+                                break;
+                            case "purplecircle":
+                                Form1.enemies.Add(new BaseEnemy(Form1.purplecircle, Form1.startPos, 90, 4, 3));
+                                break;
+                            case "whitecircle":
+                                Form1.enemies.Add(new BaseEnemy(Form1.whitecircle, Form1.startPos, 2000, 1, 10));
+                                break;
+                            case "bluetri":
+                                Form1.enemies.Add(new BaseEnemy(Form1.bluetri, Form1.startPos, 60, 1, 3));
+                                break;
+                            case "greentri":
+                                Form1.enemies.Add(new BaseEnemy(Form1.greentri, Form1.startPos, 120, 2, 3));
+                                break;
+                            case "yellowtri":
+                                Form1.enemies.Add(new BaseEnemy(Form1.yellowtri, Form1.startPos, 180, 3, 3));
+                                break;
+                            case "orangetri":
+                                Form1.enemies.Add(new BaseEnemy(Form1.orangetri, Form1.startPos, 240, 4, 4));
+                                break;
+                            case "redtri":
+                                Form1.enemies.Add(new BaseEnemy(Form1.redtri, Form1.startPos, 300, 4, 4));
+                                break;
+                            case "purpletri":
+                                Form1.enemies.Add(new BaseEnemy(Form1.purpletri, Form1.startPos, 360, 5, 4));
+                                break;
+                            case "whitetri":
+                                Form1.enemies.Add(new BaseEnemy(Form1.whitetri, Form1.startPos, 4000, 1, 25));
+                                break;
+                            case "bluerect":
+                                Form1.enemies.Add(new BaseEnemy(Form1.bluerect, Form1.startPos, 240, 2, 4));
+                                break;
+                            case "greenrect":
+                                Form1.enemies.Add(new BaseEnemy(Form1.greenrect, Form1.startPos, 580, 3, 4));
+                                break;
+                            case "yellowrect":
+                                Form1.enemies.Add(new BaseEnemy(Form1.yellowrect, Form1.startPos, 820, 4, 4));
+                                break;
+                            case "orangerect":
+                                Form1.enemies.Add(new BaseEnemy(Form1.orangerect, Form1.startPos, 1060, 4, 5));
+                                break;
+                            case "redrect":
+                                Form1.enemies.Add(new BaseEnemy(Form1.redrect, Form1.startPos, 1300, 5, 5));
+                                break;
+                            case "purplerect":
+                                Form1.enemies.Add(new BaseEnemy(Form1.purplerect, Form1.startPos, 1540, 6, 6));
+                                break;
+                            case "whiterect":
+                                Form1.enemies.Add(new BaseEnemy(Form1.whiterect, Form1.startPos, 8000, 1, 50));
+                                break;
+                            default:
+                                MessageBox.Show("Error: Type received at Form1.timerTick Wave Handler, is invalid.");
+                                break;
                         }
                         remainingQuantity--;
                     }

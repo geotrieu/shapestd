@@ -12,12 +12,20 @@ yellowcircle 20 orangecircle 10 !20
 orangecircle 20 redcircle 10 !20
 redcircle 20 purplecircle 10 !20
 bluecircle 100 whitecircle 1 bluecircle 100 !10
-greencircle 10 !2
-orangecircle 100 !20
-redcircle 100 !20
-purplecircle 100 !20
-purplecircle 100 !10
-purplecircle 9000 !1
-whitecircle 100 !50
-whitecircle 9000 !1
-purplecircle 100 !1000
+bluecircle 10 bluetri 10 !10
+redcircle 25 bluetri 5 greentri 5 !15
+purplecircle 25 bluetri 15 yellowtri 8 !15
+bluetri 20 greentri 15 orangetri 10 !15
+orangetri 15 redtri 5 greentri 15 !15
+purplecircle 25 bluetri 5 purpletri 5 redtri 15 !25
+purplecircle 25 purpletri 5 !5
+whitetri 1 greentri 25 !15
+bluetri 10 bluerect 10 !10
+redtri 25 bluerect 5 greenrect 5 !15
+purpletri 25 bluerect 15 yellowrect 8 !15
+bluerect 20 greenrect 15 orangerect 10 !15
+orangerect 15 redrect 5 greenrect 15 !15
+purpletri 25 bluerect 5 purplerect 5 redrect 15 !25
+purpletri 25 purplerect 5 !5
+whiterect 1 greenrect 25 !15
+purplerect 100 !1000
