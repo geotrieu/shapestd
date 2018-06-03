@@ -30,6 +30,10 @@ namespace ShapesTD
                     int yDiff = Math.Abs(loc.Y + 15 - be.getLocation().Y);
                     if (Math.Pow(radius, 2) >= (Math.Pow(xDiff, 2) + Math.Pow(yDiff, 2)))
                     {
+                        if (!Form1.shootingAt.Contains(BasePair.FindBasePair(Form1.shootingAt, this, be)))
+                        {
+                            Form1.shootingAt.Add(new BasePair(this, be));
+                        }
                         be.setFreeze(true);
                         break;
                     }
@@ -37,6 +41,10 @@ namespace ShapesTD
                     yDiff = Math.Abs(loc.Y + 15 - be.getLocation().Y);
                     if (Math.Pow(radius, 2) >= (Math.Pow(xDiff, 2) + Math.Pow(yDiff, 2)))
                     {
+                        if (!Form1.shootingAt.Contains(BasePair.FindBasePair(Form1.shootingAt, this, be)))
+                        {
+                            Form1.shootingAt.Add(new BasePair(this, be));
+                        }
                         be.setFreeze(true);
                         break;
                     }
@@ -44,6 +52,10 @@ namespace ShapesTD
                     yDiff = Math.Abs(loc.Y + 15 - (be.getLocation().Y + 31));
                     if (Math.Pow(radius, 2) >= (Math.Pow(xDiff, 2) + Math.Pow(yDiff, 2)))
                     {
+                        if (!Form1.shootingAt.Contains(BasePair.FindBasePair(Form1.shootingAt, this, be)))
+                        {
+                            Form1.shootingAt.Add(new BasePair(this, be));
+                        }
                         be.setFreeze(true);
                         break;
                     }
@@ -51,10 +63,19 @@ namespace ShapesTD
                     yDiff = Math.Abs(loc.Y + 15 - (be.getLocation().Y + 31));
                     if (Math.Pow(radius, 2) >= (Math.Pow(xDiff, 2) + Math.Pow(yDiff, 2)))
                     {
+                        if (!Form1.shootingAt.Contains(BasePair.FindBasePair(Form1.shootingAt, this, be)))
+                        {
+                            Form1.shootingAt.Add(new BasePair(this, be));
+                        }
                         be.setFreeze(true);
                         break;
                     }
                     //else there is no collision
+                    //Checks if the enemy has left the radius
+                    if (Form1.shootingAt.Contains(BasePair.FindBasePair(Form1.shootingAt, this, be)))
+                    {
+                        Form1.shootingAt.Remove(BasePair.FindBasePair(Form1.shootingAt, this, be));
+                    }
                 }
 
                 cycle = 0;

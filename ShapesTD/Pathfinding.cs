@@ -65,6 +65,7 @@ namespace ShapesTD
                             be.addVisited((locX - (16 * scanx[be.getLastDir()])) / 32, (locY - (16 * scany[be.getLastDir()])) / 32);
                             be.setLocation(newLoc);
                             be.setLastDir(i);
+                            be.pixelsTraversed += moveSpeed;
                             break;
                         }
                     } else if (Form1.levelMap[
@@ -74,7 +75,7 @@ namespace ShapesTD
                                    scany[i]] == 'E')
                     {
                         Form1.health -= be.getDamage();
-                        Form1.enemies.Remove(be);
+                        be.destroyEnemy();
                         //reduce lives here
                         goto main;
                     }

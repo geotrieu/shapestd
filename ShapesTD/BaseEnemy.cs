@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Drawing;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,7 @@ namespace ShapesTD
         private bool[,] visited = new bool[Form1.width, Form1.height];
         private int lastDir = 0;
         private bool isFrozen = false;
+        public int pixelsTraversed;
 
         public BaseEnemy(Image img, Point loc, int maxHealth = 100, int speed = 1, int dmg = 1)
         {
@@ -104,6 +106,16 @@ namespace ShapesTD
             isFrozen = b;
         }
 
+        public void destroyEnemy()
+        {
+            ArrayList al = BasePair.FindBasePair(Form1.shootingAt, this);
+            foreach (BasePair bp in al)
+            {
+                Form1.shootingAt.Remove(bp);
+            }
+            Form1.enemies.Remove(this);
+        }
+        
         //DRAW FUNCTIONS
         public void drawEnemy(ref Graphics offscreen)
         {

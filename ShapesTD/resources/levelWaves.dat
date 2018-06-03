@@ -4,6 +4,7 @@
 *More enemies can follow in the wave, which has an enemy name and a squantity.
 *The Last number, preceeded by an exclamation mark, is the waveInterval or how sparse the blocks will spawn in the wave.
 *WARNING, ENSURE ALL WAVES ARE FORMATTED WITH NO EXTRA SPACES AT THE END, OR ANY OTHER CHARACTERS
+greencircle 2 !100
 bluecircle 10 !50
 bluecircle 20 !50
 bluecircle 10 greencircle 10 !40

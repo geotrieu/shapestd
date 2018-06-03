@@ -7,6 +7,7 @@
       <e p="ShapesTD" t="IncludeRecursive">
         <e p="App.config" t="Include" />
         <e p="BaseEnemy.cs" t="Include" />
+        <e p="BasePair.cs" t="Include" />
         <e p="BaseTower.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="DrawGraphics.cs" t="Include" />
@@ -64,6 +65,7 @@
         </e>
         <e p="ShapesTD.csproj" t="IncludeRecursive" />
         <e p="ShopControl.cs" t="Include" />
+        <e p="SortEnemies.cs" t="Include" />
         <e p="WaveHandler.cs" t="Include" />
       </e>
       <e p="ShapesTD.sln" t="IncludeFlat" />

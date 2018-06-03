@@ -70,7 +70,7 @@ namespace ShapesTD
         
         //Level Variables
         public static int health = 100;
-        public static int cash = 200;
+        public static int cash = 20000;
         public static int wave = 0;
         public static int totalWaves = 0;
         public static bool gameStarted = false;
@@ -112,17 +112,23 @@ namespace ShapesTD
 
         }
         
+        private int sortEnemiesInterval = 1;
+        private int currentTick = 0;
         //this code copies offscreen to onscreen
         private void timer1_Tick(object sender, EventArgs e)
         {
             Pathfinding.MovePath();
             GameConditions.checkEnemies();
-            if (Form1.health <= 0)
+            GameConditions.checkHealth(this);
+            //Sort Enemies every sortEnemiesInterval Seconds
+            if (currentTick == sortEnemiesInterval)
             {
-                //Game Over
-                timer1.Enabled = false;
-                MessageBox.Show("Game Over!");
-                Application.Exit();
+                SortEnemies.ReorderEnemies();
+                currentTick = 0;
+            }
+            else
+            {
+                currentTick++;
             }
             //check if game is finished - aka you won- ToDo
             if (wave <= totalWaves - 1)

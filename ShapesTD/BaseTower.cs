@@ -66,11 +66,7 @@ namespace ShapesTD
                 {
                     if (be.getHealth() <= 0)
                     {
-                        Form1.enemies.Remove(be);
-                        if (Form1.shootingAt.Contains(new BasePair(this, be)))
-                        {
-                            Form1.shootingAt.Remove(new BasePair(this, be));
-                        }
+                        be.destroyEnemy();
                         break;
                     }
                     int xDiff = Math.Abs(loc.X + 15 - be.getLocation().X);
@@ -79,10 +75,11 @@ namespace ShapesTD
                     {
                         be.setHealth(be.getHealth() - damage);
                         Form1.cash++;
-                        if (!Form1.shootingAt.Contains(new BasePair(this, be)))
+                        if (!Form1.shootingAt.Contains(BasePair.FindBasePair(Form1.shootingAt, this, be)))
                         {
                             Form1.shootingAt.Add(new BasePair(this, be));
                         }
+
                         break;
                     }
                     xDiff = Math.Abs(loc.X + 15 - (be.getLocation().X + 31));
@@ -91,10 +88,11 @@ namespace ShapesTD
                     {
                         be.setHealth(be.getHealth() - damage);
                         Form1.cash++;
-                        if (!Form1.shootingAt.Contains(new BasePair(this, be)))
+                        if (!Form1.shootingAt.Contains(BasePair.FindBasePair(Form1.shootingAt, this, be)))
                         {
                             Form1.shootingAt.Add(new BasePair(this, be));
                         }
+
                         break;
                     }
                     xDiff = Math.Abs(loc.X + 15 - (be.getLocation().X + 31));
@@ -103,10 +101,11 @@ namespace ShapesTD
                     {
                         be.setHealth(be.getHealth() - damage);
                         Form1.cash++;
-                        if (!Form1.shootingAt.Contains(new BasePair(this, be)))
+                        if (!Form1.shootingAt.Contains(BasePair.FindBasePair(Form1.shootingAt, this, be)))
                         {
                             Form1.shootingAt.Add(new BasePair(this, be));
                         }
+
                         break;
                     }
                     xDiff = Math.Abs(loc.X + 15 - be.getLocation().X);
@@ -115,19 +114,20 @@ namespace ShapesTD
                     {
                         be.setHealth(be.getHealth() - damage);
                         Form1.cash++;
-                        if (!Form1.shootingAt.Contains(new BasePair(this, be)))
+                        if (!Form1.shootingAt.Contains(BasePair.FindBasePair(Form1.shootingAt, this, be)))
                         {
                             Form1.shootingAt.Add(new BasePair(this, be));
                         }
+
                         break;
                     }
                     //else there is no collision
-                    if (Form1.shootingAt.Contains(new BasePair(this, be)))
+                    //Checks if the enemy has left the radius
+                    if (Form1.shootingAt.Contains(BasePair.FindBasePair(Form1.shootingAt, this, be)))
                     {
-                        Form1.shootingAt.Remove(new BasePair(this, be));
+                        Form1.shootingAt.Remove(BasePair.FindBasePair(Form1.shootingAt, this, be));
                     }
                 }
-
                 cycle = 0;
             }
             else
@@ -144,28 +144,6 @@ namespace ShapesTD
         public void drawRadius(ref Graphics offscreen)
         {
             offscreen.FillEllipse(new SolidBrush(Color.FromArgb(100, 255, 100, 0)), (loc.X + 15 - radius), (loc.Y + 15 - radius), radius * 2, radius * 2);
-        }
-
-        public struct BasePair
-        {
-            private BaseTower bt;
-            private BaseEnemy be;
-            
-            public BasePair(BaseTower bt, BaseEnemy be)
-            {
-                this.bt = bt;
-                this.be = be;
-            }
-
-            public BaseTower GetTower()
-            {
-                return bt;
-            }
-            
-            public BaseEnemy GetEnemy()
-            {
-                return be;
-            }
         }
     }
 }
