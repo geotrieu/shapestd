@@ -47,6 +47,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Shapes TD";
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseClick);
             this.MouseHover += new System.EventHandler(this.Form1_MouseHover);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);

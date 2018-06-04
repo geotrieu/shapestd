@@ -31,8 +31,11 @@
           <e p="bluerect.png" t="Include" />
           <e p="bluetri.png" t="Include" />
           <e p="bullettower.png" t="Include" />
+          <e p="cannonsound.wav" t="Include" />
+          <e p="cannontower.png" t="Include" />
           <e p="coin.png" t="Include" />
           <e p="dirt.png" t="Include" />
+          <e p="freezesound.wav" t="Include" />
           <e p="freezetower.png" t="Include" />
           <e p="grass.png" t="Include" />
           <e p="greencircle.png" t="Include" />
@@ -40,12 +43,14 @@
           <e p="greentri.png" t="Include" />
           <e p="heart.png" t="Include" />
           <e p="homebase.png" t="Include" />
+          <e p="icon.ico" t="Include" />
           <e p="lasertower.png" t="Include" />
           <e p="level1.dat" t="Include" />
           <e p="levelWaves.dat" t="Include" />
           <e p="orangecircle.png" t="Include" />
           <e p="orangerect.png" t="Include" />
           <e p="orangetri.png" t="Include" />
+          <e p="pause.png" t="Include" />
           <e p="play.png" t="Include" />
           <e p="purplecircle.png" t="Include" />
           <e p="purplerect.png" t="Include" />
@@ -53,6 +58,7 @@
           <e p="redcircle.png" t="Include" />
           <e p="redrect.png" t="Include" />
           <e p="redtri.png" t="Include" />
+          <e p="silent.wav" t="Include" />
           <e p="steel.png" t="Include" />
           <e p="wave.png" t="Include" />
           <e p="whitecircle.png" t="Include" />

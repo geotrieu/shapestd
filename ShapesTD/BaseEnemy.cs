@@ -19,6 +19,7 @@ namespace ShapesTD
         private bool[,] visited = new bool[Form1.width, Form1.height];
         private int lastDir = 0;
         private bool isFrozen = false;
+        private int frozenTicks = 0;
         public int pixelsTraversed;
 
         public BaseEnemy(Image img, Point loc, int maxHealth = 100, int speed = 1, int dmg = 1)
@@ -80,6 +81,11 @@ namespace ShapesTD
             return (visited[tileX, tileY] ? true : false);
         }
 
+        public int getFrozenTicks()
+        {
+            return frozenTicks;
+        }
+
         //SET FUNCTIONS
         public void addVisited(int tileX, int tileY)
         {
@@ -114,6 +120,11 @@ namespace ShapesTD
                 Form1.shootingAt.Remove(bp);
             }
             Form1.enemies.Remove(this);
+        }
+
+        public void setFrozenTicks(int x)
+        {
+            frozenTicks = x;
         }
         
         //DRAW FUNCTIONS

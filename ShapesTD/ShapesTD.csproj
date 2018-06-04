@@ -94,8 +94,11 @@
     <Content Include="resources\bluerect.png" />
     <Content Include="resources\bluetri.png" />
     <Content Include="resources\bullettower.png" />
+      <Content Include="resources\cannonsound.wav"/>
+      <Content Include="resources\cannontower.png"/>
     <Content Include="resources\coin.png" />
     <Content Include="resources\dirt.png" />
+      <Content Include="resources\freezesound.wav"/>
     <Content Include="resources\freezetower.png" />
     <Content Include="resources\grass.png" />
     <Content Include="resources\greencircle.png" />
@@ -103,11 +106,13 @@
     <Content Include="resources\greentri.png" />
     <Content Include="resources\heart.png" />
     <Content Include="resources\homebase.png" />
+      <Content Include="resources\icon.ico"/>
     <Content Include="resources\lasertower.png" />
     <Content Include="resources\levelWaves.dat" />
     <Content Include="resources\orangecircle.png" />
     <Content Include="resources\orangerect.png" />
     <Content Include="resources\orangetri.png" />
+      <Content Include="resources\pause.png"/>
     <Content Include="resources\play.png" />
     <Content Include="resources\purplecircle.png" />
     <Content Include="resources\purplerect.png" />
@@ -115,6 +120,7 @@
     <Content Include="resources\redcircle.png" />
     <Content Include="resources\redrect.png" />
     <Content Include="resources\redtri.png" />
+      <Content Include="resources\silent.wav"/>
     <Content Include="resources\steel.png" />
     <Content Include="resources\wave.png" />
     <Content Include="resources\whitecircle.png" />

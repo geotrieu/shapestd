@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Media;
 using System.Net;
 using System.Runtime.CompilerServices;
 using ShapesTD.resources;
@@ -49,13 +50,20 @@ namespace ShapesTD
         public static Image bullettower = Image.FromFile("../../resources/bullettower.png");
         public static Image lasertower = Image.FromFile("../../resources/lasertower.png");
         public static Image freezetower = Image.FromFile("../../resources/freezetower.png");
+        public static Image cannontower = Image.FromFile("../../resources/cannontower.png");
         public static Image homebase = Image.FromFile("../../resources/homebase.png");
         public static Image heart = Image.FromFile("../../resources/heart.png");
         public static Image coin = Image.FromFile("../../resources/coin.png");
         public static Image waveImg = Image.FromFile("../../resources/wave.png");
         public static Image start = Image.FromFile("../../resources/play.png");
+        public static Image pause = Image.FromFile("../../resources/pause.png");
         public static Font defFont = new Font(FontFamily.GenericMonospace, 10);
         public static Font bigFont = new Font(FontFamily.GenericMonospace, 100);
+        
+        //Sound
+        public static SoundPlayer silentSound = new SoundPlayer("../../resources/silent.wav");
+        public static SoundPlayer freezeSound = new SoundPlayer("../../resources/freezesound.wav");
+        public static SoundPlayer cannonSound = new SoundPlayer("../../resources/cannonsound.wav");
 
         //Entities
         public static ArrayList enemies = new ArrayList();
@@ -70,7 +78,7 @@ namespace ShapesTD
         
         //Level Variables
         public static int health = 100;
-        public static int cash = 20000;
+        public static int cash = 500;
         public static int wave = 0;
         public static int totalWaves = 0;
         public static bool gameStarted = false;
@@ -142,18 +150,22 @@ namespace ShapesTD
             {
                 using (StreamReader sr = File.OpenText("../../resources/level" + level + ".dat"))
                 {
-                    int i = 0;
+                    int y = 0;
                     while (sr.Peek() >= 0)
                     {
                         string str = sr.ReadLine();
-                        int j = 0;
+                        int x = 0;
                         foreach (char c in str.ToCharArray())
                         {
-                            levelMap[j, i] = c;
-                            j++;
+                            if (c == 'S')
+                            {
+                                startPos = new Point(x * 32, y * 32);
+                            }
+                            levelMap[x, y] = c;
+                            x++;
                         }
 
-                        i++;
+                        y++;
                     }
                 }
             }
@@ -180,101 +192,138 @@ namespace ShapesTD
 
         private void Form1_MouseClick(object sender, MouseEventArgs e)
         {
-            //Click Controllers
-            if (mouseX >= ShopControl.bulletTower.X && mouseX <= (ShopControl.bulletTower.X + 31))
+            if (e.Button.Equals(MouseButtons.Left))
             {
-                if (mouseY >= ShopControl.bulletTower.Y && mouseY <= (ShopControl.bulletTower.Y + 31))
+                //Click Controllers
+                if (mouseX >= ShopControl.bulletTower.X && mouseX <= (ShopControl.bulletTower.X + 31))
                 {
-                    if (pickedUp == null)
+                    if (mouseY >= ShopControl.bulletTower.Y && mouseY <= (ShopControl.bulletTower.Y + 31))
                     {
-                        if (cash >= 100)
+                        if (pickedUp == null)
                         {
-                            pickedUp = "bullettower";
-                            return;
-                        }
-                    }
-                }
-            }
-            if (mouseX >= ShopControl.laserTower.X && mouseX <= (ShopControl.laserTower.X + 31))
-            {
-                if (mouseY >= ShopControl.laserTower.Y && mouseY <= (ShopControl.laserTower.Y + 31))
-                {
-                    if (pickedUp == null)
-                    {
-                        if (cash >= 300)
-                        {
-                            pickedUp = "lasertower";
-                            return;
-                        }
-                    }
-                }
-            }
-            if (mouseX >= ShopControl.freezeTower.X && mouseX <= (ShopControl.freezeTower.X + 31))
-            {
-                if (mouseY >= ShopControl.freezeTower.Y && mouseY <= (ShopControl.freezeTower.Y + 31))
-                {
-                    if (pickedUp == null)
-                    {
-                        if (cash >= 300)
-                        {
-                            pickedUp = "freezetower";
-                            return;
-                        }
-                    }
-                }
-            }
-            if (mouseX >= ShopControl.startButton.X && mouseX <= (ShopControl.startButton.X + 15))
-            {
-                if (mouseY >= ShopControl.startButton.Y && mouseY <= (ShopControl.startButton.Y + 15))
-                {
-                    if (gameStarted == false)
-                    {
-                        gameStarted = true;
-                    }
-                }
-            }
-
-            //PickedUp Controller
-            if (pickedUp != null)
-            {
-                int tileX = mouseX / 32;
-                int tileY = mouseY / 32;
-                bool valid = levelMap[tileX, tileY] == '0';
-                foreach (BaseTower bt in towers)
-                {
-                    if (bt.getLocation().X == (tileX * 32))
-                    {
-                        if (bt.getLocation().Y == (tileY * 32))
-                        {
-                            valid = false;
-                            break;
+                            if (cash >= 100)
+                            {
+                                pickedUp = "bullettower";
+                                return;
+                            }
                         }
                     }
                 }
 
-                if (valid)
+                if (mouseX >= ShopControl.laserTower.X && mouseX <= (ShopControl.laserTower.X + 31))
                 {
-                    BaseTower bt = null;
-                    if (pickedUp == "bullettower")
+                    if (mouseY >= ShopControl.laserTower.Y && mouseY <= (ShopControl.laserTower.Y + 31))
                     {
-                        bt = new BaseTower(bullettower, tileX * 32, tileY * 32);
-                        towers.Add(bt);
+                        if (pickedUp == null)
+                        {
+                            if (cash >= 300)
+                            {
+                                pickedUp = "lasertower";
+                                return;
+                            }
+                        }
                     }
-                    else if (pickedUp == "lasertower")
+                }
+
+                if (mouseX >= ShopControl.freezeTower.X && mouseX <= (ShopControl.freezeTower.X + 31))
+                {
+                    if (mouseY >= ShopControl.freezeTower.Y && mouseY <= (ShopControl.freezeTower.Y + 31))
                     {
-                        bt = new BaseTower(lasertower, tileX * 32, tileY * 32, 1, 1, 30, 300, "laser");
-                        towers.Add(bt);
+                        if (pickedUp == null)
+                        {
+                            if (cash >= 300)
+                            {
+                                pickedUp = "freezetower";
+                                return;
+                            }
+                        }
                     }
-                    else if (pickedUp == "freezetower")
+                }
+                
+                if (mouseX >= ShopControl.cannonTower.X && mouseX <= (ShopControl.cannonTower.X + 31))
+                {
+                    if (mouseY >= ShopControl.cannonTower.Y && mouseY <= (ShopControl.cannonTower.Y + 31))
                     {
-                        bt = new FreezeTower(tileX * 32, tileY * 32);
-                        towers.Add(bt);
+                        if (pickedUp == null)
+                        {
+                            if (cash >= 1000)
+                            {
+                                pickedUp = "cannontower";
+                                return;
+                            }
+                        }
+                    }
+                }
+
+                if (mouseX >= ShopControl.startButton.X && mouseX <= (ShopControl.startButton.X + 15))
+                {
+                    if (mouseY >= ShopControl.startButton.Y && mouseY <= (ShopControl.startButton.Y + 15))
+                    {
+                        if (gameStarted == false)
+                        {
+                            gameStarted = true;
+                        }
+                    }
+                }
+
+                //PickedUp Controller
+                if (pickedUp != null)
+                {
+                    int tileX = mouseX / 32;
+                    int tileY = mouseY / 32;
+                    bool valid = levelMap[tileX, tileY] == '0';
+                    foreach (BaseTower bt in towers)
+                    {
+                        if (bt.getLocation().X == (tileX * 32))
+                        {
+                            if (bt.getLocation().Y == (tileY * 32))
+                            {
+                                valid = false;
+                                break;
+                            }
+                        }
                     }
 
+                    if (valid)
+                    {
+                        BaseTower bt = null;
+                        if (pickedUp == "bullettower")
+                        {
+                            bt = new BaseTower(bullettower, tileX * 32, tileY * 32, "bullet");
+                            towers.Add(bt);
+                        }
+                        else if (pickedUp == "lasertower")
+                        {
+                            bt = new BaseTower(lasertower, tileX * 32, tileY * 32, "laser", 1, 1, 30, 300);
+                            towers.Add(bt);
+                        }
+                        else if (pickedUp == "freezetower")
+                        {
+                            bt = new FreezeTower(tileX * 32, tileY * 32);
+                            towers.Add(bt);
+                        }
+                        else if (pickedUp == "cannontower")
+                        {
+                            bt = new BaseTower(cannontower, tileX * 32, tileY * 32, "cannon", 100, 50, 120, 1000, cannonSound);
+                            towers.Add(bt);
+                        }
+
+                        pickedUp = null;
+                        cash -= bt.getCost();
+                    }
+                }
+            } else if (e.Button.Equals(MouseButtons.Right))
+            {
+                if (pickedUp != null)
+                {
                     pickedUp = null;
-                    cash -= bt.getCost();
                 }
             }
+        }
+
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
         }
     }
 }

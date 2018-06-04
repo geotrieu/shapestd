@@ -7,6 +7,7 @@ namespace ShapesTD
         public static Point bulletTower = new Point(32, Form1.height * 32 - 48);
         public static Point laserTower = new Point(96, Form1.height * 32 - 48);
         public static Point freezeTower = new Point(160, Form1.height * 32 - 48);
+        public static Point cannonTower = new Point(224, Form1.height * 32 - 48);
         public static Point startButton = new Point(Form1.width * 32 - 32, Form1.height * 32 - 56);
         
         public static void drawShop()
@@ -20,6 +21,9 @@ namespace ShapesTD
             //Freeze Tower
             Form1.offscreen.DrawImage(Form1.freezetower, freezeTower);
             Form1.offscreen.DrawString("500$", Form1.defFont, new SolidBrush(Color.White), new Point(freezeTower.X - 2, Form1.height * 32 - 16));
+            //Cannon Tower
+            Form1.offscreen.DrawImage(Form1.cannontower, cannonTower);
+            Form1.offscreen.DrawString("1000$", Form1.defFont, new SolidBrush(Color.White), new Point(cannonTower.X - 6, Form1.height * 32 - 16));
             
             //Start Button
             Form1.offscreen.DrawImage(Form1.start, startButton);
@@ -32,14 +36,22 @@ namespace ShapesTD
                 if (Form1.pickedUp == "bullettower")
                 {
                     Form1.offscreen.DrawImage(Form1.bullettower, Form1.mouseX - 15, Form1.mouseY - 15);
+                    Form1.offscreen.FillEllipse(new SolidBrush(Color.FromArgb(100, 255, 100, 0)), (Form1.mouseX - 50), (Form1.mouseY - 50), 100, 100);
                 }
-                if (Form1.pickedUp == "lasertower")
+                else if (Form1.pickedUp == "lasertower")
                 {
                     Form1.offscreen.DrawImage(Form1.lasertower, Form1.mouseX - 15, Form1.mouseY - 15);
+                    Form1.offscreen.FillEllipse(new SolidBrush(Color.FromArgb(100, 255, 100, 0)), (Form1.mouseX - 30), (Form1.mouseY - 30), 60, 60);
                 }
-                if (Form1.pickedUp == "freezetower")
+                else if (Form1.pickedUp == "freezetower")
                 {
                     Form1.offscreen.DrawImage(Form1.freezetower, Form1.mouseX - 15, Form1.mouseY - 15);
+                    Form1.offscreen.FillEllipse(new SolidBrush(Color.FromArgb(100, 255, 100, 0)), (Form1.mouseX - 80), (Form1.mouseY - 80), 160, 160);
+                }
+                else if (Form1.pickedUp == "cannontower")
+                {
+                    Form1.offscreen.DrawImage(Form1.cannontower, Form1.mouseX - 15, Form1.mouseY - 15);
+                    Form1.offscreen.FillEllipse(new SolidBrush(Color.FromArgb(100, 255, 100, 0)), (Form1.mouseX - 120), (Form1.mouseY - 120), 240, 240);
                 }
             }
         }

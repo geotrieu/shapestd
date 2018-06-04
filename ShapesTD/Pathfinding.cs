@@ -20,8 +20,9 @@ namespace ShapesTD
                 * 3: Up */
                 
                 //Check if Enemy is frozen
-                if (be.IsFrozen())
+                if (be.getFrozenTicks() > 0)
                 {
+                    be.setFrozenTicks(be.getFrozenTicks() - 1);
                     continue;
                 }
                 

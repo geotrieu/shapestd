@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,8 +18,10 @@ namespace ShapesTD
         private int cycle = 0;
         private int cost;
         private string towerType;
+        private SoundPlayer sound;
 
-        public BaseTower(Image img, int locX, int locY, int shootRate = 9, int damage = 3, int radius = 50, int cost = 100, string towerType = "basic")
+        public BaseTower(Image img, int locX, int locY, string towerType, int shootRate = 50, int damage = 3,
+            int radius = 50, int cost = 100, SoundPlayer sp = null)
         {
             this.img = img;
             int tileX = locX / 32;
@@ -29,6 +32,14 @@ namespace ShapesTD
             this.radius = radius;
             this.cost = cost;
             this.towerType = towerType;
+            if (sp == null)
+            {
+                sound = Form1.silentSound;
+            }
+            else
+            {
+                sound = sp;
+            }
         }
 
         public int getCost()
@@ -79,7 +90,7 @@ namespace ShapesTD
                         {
                             Form1.shootingAt.Add(new BasePair(this, be));
                         }
-
+                        sound.Play();
                         break;
                     }
                     xDiff = Math.Abs(loc.X + 15 - (be.getLocation().X + 31));
@@ -92,7 +103,7 @@ namespace ShapesTD
                         {
                             Form1.shootingAt.Add(new BasePair(this, be));
                         }
-
+                        sound.Play();
                         break;
                     }
                     xDiff = Math.Abs(loc.X + 15 - (be.getLocation().X + 31));
@@ -105,7 +116,7 @@ namespace ShapesTD
                         {
                             Form1.shootingAt.Add(new BasePair(this, be));
                         }
-
+                        sound.Play();
                         break;
                     }
                     xDiff = Math.Abs(loc.X + 15 - be.getLocation().X);
@@ -118,7 +129,7 @@ namespace ShapesTD
                         {
                             Form1.shootingAt.Add(new BasePair(this, be));
                         }
-
+                        sound.Play();
                         break;
                     }
                     //else there is no collision

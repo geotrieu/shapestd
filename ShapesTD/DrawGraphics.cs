@@ -82,11 +82,6 @@ namespace ShapesTD
                 bt.drawRadius(ref Form1.offscreen);
             }
             
-            foreach (BaseEnemy be in Form1.enemies)
-            {
-                be.drawEnemy(ref Form1.offscreen);
-            }
-
             foreach (BaseTower bt in Form1.towers)
             {
                 bt.drawTower(ref Form1.offscreen);
@@ -105,7 +100,17 @@ namespace ShapesTD
                     Point ptTower = new Point(bp.GetTower().getLocation().X + 15, bp.GetTower().getLocation().Y + 15);
                     Point ptEnemy = new Point(bp.GetEnemy().getLocation().X + 15, bp.GetEnemy().getLocation().Y + 15);
                     Form1.offscreen.DrawLine(new Pen(Color.Aqua, 3), ptTower, ptEnemy);
+                } else if (bp.GetTower().GetTowerType() == "basic")
+                {
+                    Point ptTower = new Point(bp.GetTower().getLocation().X + 15, bp.GetTower().getLocation().Y + 15);
+                    Point ptEnemy = new Point(bp.GetEnemy().getLocation().X + 15, bp.GetEnemy().getLocation().Y + 15);
+                    Form1.offscreen.DrawLine(new Pen(Color.OrangeRed, 3), ptTower, ptEnemy);
                 }
+            }
+            
+            foreach (BaseEnemy be in Form1.enemies)
+            {
+                be.drawEnemy(ref Form1.offscreen);
             }
 
             Form1.dc.DrawImage(Form1.curBitmap, 0, 0);
