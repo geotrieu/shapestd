@@ -20,8 +20,8 @@ namespace ShapesTD
         private string towerType;
         private SoundPlayer sound;
 
-        public BaseTower(Image img, int locX, int locY, string towerType, int shootRate = 50, int damage = 3,
-            int radius = 50, int cost = 100, SoundPlayer sp = null)
+        public BaseTower(Image img, int locX, int locY, string towerType, int shootRate = 30, int damage = 15,
+            int radius = 80, int cost = 100, SoundPlayer sp = null)
         {
             this.img = img;
             int tileX = locX / 32;
@@ -71,65 +71,81 @@ namespace ShapesTD
         {
             
             //ToDo optomize checkEnemies, check whether there is more enemies or towers, and use that to check the rest.
-            if (cycle >= shootRate)
-            {
                 foreach (BaseEnemy be in Form1.enemies)
                 {
                     if (be.getHealth() <= 0)
                     {
+                        Form1.cash += be.GetReward();
                         be.destroyEnemy();
+
                         break;
                     }
                     int xDiff = Math.Abs(loc.X + 15 - be.getLocation().X);
                     int yDiff = Math.Abs(loc.Y + 15 - be.getLocation().Y);
                     if (Math.Pow(radius, 2) >= (Math.Pow(xDiff, 2) + Math.Pow(yDiff, 2)))
                     {
-                        be.setHealth(be.getHealth() - damage);
-                        Form1.cash++;
-                        if (!Form1.shootingAt.Contains(BasePair.FindBasePair(Form1.shootingAt, this, be)))
+                        if (cycle >= shootRate)
                         {
-                            Form1.shootingAt.Add(new BasePair(this, be));
+                            be.setHealth(be.getHealth() - damage);
+                            if (!Form1.shootingAt.Contains(BasePair.FindBasePair(Form1.shootingAt, this, be)))
+                            {
+                                Form1.shootingAt.Add(new BasePair(this, be));
+                            }
+
+                            sound.Play();
                         }
-                        sound.Play();
+
                         break;
                     }
                     xDiff = Math.Abs(loc.X + 15 - (be.getLocation().X + 31));
                     yDiff = Math.Abs(loc.Y + 15 - be.getLocation().Y);
                     if (Math.Pow(radius, 2) >= (Math.Pow(xDiff, 2) + Math.Pow(yDiff, 2)))
                     {
-                        be.setHealth(be.getHealth() - damage);
-                        Form1.cash++;
-                        if (!Form1.shootingAt.Contains(BasePair.FindBasePair(Form1.shootingAt, this, be)))
+                        if (cycle >= shootRate)
                         {
-                            Form1.shootingAt.Add(new BasePair(this, be));
+                            be.setHealth(be.getHealth() - damage);
+                            if (!Form1.shootingAt.Contains(BasePair.FindBasePair(Form1.shootingAt, this, be)))
+                            {
+                                Form1.shootingAt.Add(new BasePair(this, be));
+                            }
+
+                            sound.Play();
                         }
-                        sound.Play();
+
                         break;
                     }
                     xDiff = Math.Abs(loc.X + 15 - (be.getLocation().X + 31));
                     yDiff = Math.Abs(loc.Y + 15 - (be.getLocation().Y + 31));
                     if (Math.Pow(radius, 2) >= (Math.Pow(xDiff, 2) + Math.Pow(yDiff, 2)))
                     {
-                        be.setHealth(be.getHealth() - damage);
-                        Form1.cash++;
-                        if (!Form1.shootingAt.Contains(BasePair.FindBasePair(Form1.shootingAt, this, be)))
+                        if (cycle >= shootRate)
                         {
-                            Form1.shootingAt.Add(new BasePair(this, be));
+                            be.setHealth(be.getHealth() - damage);
+                            if (!Form1.shootingAt.Contains(BasePair.FindBasePair(Form1.shootingAt, this, be)))
+                            {
+                                Form1.shootingAt.Add(new BasePair(this, be));
+                            }
+
+                            sound.Play();
                         }
-                        sound.Play();
+
                         break;
                     }
                     xDiff = Math.Abs(loc.X + 15 - be.getLocation().X);
                     yDiff = Math.Abs(loc.Y + 15 - (be.getLocation().Y + 31));
                     if (Math.Pow(radius, 2) >= (Math.Pow(xDiff, 2) + Math.Pow(yDiff, 2)))
                     {
-                        be.setHealth(be.getHealth() - damage);
-                        Form1.cash++;
-                        if (!Form1.shootingAt.Contains(BasePair.FindBasePair(Form1.shootingAt, this, be)))
+                        if (cycle >= shootRate)
                         {
-                            Form1.shootingAt.Add(new BasePair(this, be));
+                            be.setHealth(be.getHealth() - damage);
+                            if (!Form1.shootingAt.Contains(BasePair.FindBasePair(Form1.shootingAt, this, be)))
+                            {
+                                Form1.shootingAt.Add(new BasePair(this, be));
+                            }
+
+                            sound.Play();
                         }
-                        sound.Play();
+
                         break;
                     }
                     //else there is no collision
@@ -138,7 +154,9 @@ namespace ShapesTD
                     {
                         Form1.shootingAt.Remove(BasePair.FindBasePair(Form1.shootingAt, this, be));
                     }
-                }
+            }
+            if (cycle >= shootRate)
+            {
                 cycle = 0;
             }
             else

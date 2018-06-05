@@ -67,19 +67,15 @@ namespace ShapesTD
 
             //Draw Level
             drawMap();
-            ShopControl.drawShop();
-            ShopControl.drawCursorPickup();
-            //Draw Overlays
-            drawHealth();
-            drawCash();
-            drawWave();
             
             //Draw Debug
-            drawDebug();
+            //drawDebug();
             
+            //Selected Tower Draw
             foreach (BaseTower bt in Form1.towers)
             {
-                bt.drawRadius(ref Form1.offscreen);
+                if (Form1.selectedTower == bt)
+                    bt.drawRadius(ref Form1.offscreen);
             }
             
             foreach (BaseTower bt in Form1.towers)
@@ -100,7 +96,7 @@ namespace ShapesTD
                     Point ptTower = new Point(bp.GetTower().getLocation().X + 15, bp.GetTower().getLocation().Y + 15);
                     Point ptEnemy = new Point(bp.GetEnemy().getLocation().X + 15, bp.GetEnemy().getLocation().Y + 15);
                     Form1.offscreen.DrawLine(new Pen(Color.Aqua, 3), ptTower, ptEnemy);
-                } else if (bp.GetTower().GetTowerType() == "basic")
+                } else if (bp.GetTower().GetTowerType() == "bullet")
                 {
                     Point ptTower = new Point(bp.GetTower().getLocation().X + 15, bp.GetTower().getLocation().Y + 15);
                     Point ptEnemy = new Point(bp.GetEnemy().getLocation().X + 15, bp.GetEnemy().getLocation().Y + 15);
@@ -112,6 +108,12 @@ namespace ShapesTD
             {
                 be.drawEnemy(ref Form1.offscreen);
             }
+            //Draw Overlays
+            drawHealth();
+            drawCash();
+            drawWave();
+            ShopControl.drawShop();
+            ShopControl.drawCursorPickup();
 
             Form1.dc.DrawImage(Form1.curBitmap, 0, 0);
         }

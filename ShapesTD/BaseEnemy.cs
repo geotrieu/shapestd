@@ -21,8 +21,9 @@ namespace ShapesTD
         private bool isFrozen = false;
         private int frozenTicks = 0;
         public int pixelsTraversed;
+        private int reward;
 
-        public BaseEnemy(Image img, Point loc, int maxHealth = 100, int speed = 1, int dmg = 1)
+        public BaseEnemy(Image img, Point loc, int maxHealth = 100, int speed = 1, int dmg = 1, int reward = 10)
         {
             this.image = img;
             this.maxHealth = maxHealth;
@@ -30,9 +31,10 @@ namespace ShapesTD
             this.speed = speed;
             this.loc = loc;
             this.dmg = dmg;
+            this.reward = reward;
         }
 
-        public BaseEnemy(Image img, int x, int y, int maxHealth = 100, int speed = 1, int dmg = 1)
+        public BaseEnemy(Image img, int x, int y, int maxHealth = 100, int speed = 1, int dmg = 1, int reward = 10)
         {
             this.image = img;
             this.maxHealth = maxHealth;
@@ -40,6 +42,7 @@ namespace ShapesTD
             this.speed = speed;
             this.loc = new Point(x, y);
             this.dmg = dmg;
+            this.reward = reward;
         }
 
         //GET FUNCTIONS
@@ -84,6 +87,11 @@ namespace ShapesTD
         public int getFrozenTicks()
         {
             return frozenTicks;
+        }
+
+        public int GetReward()
+        {
+            return reward;
         }
 
         //SET FUNCTIONS

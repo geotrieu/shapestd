@@ -134,7 +134,7 @@ namespace ShapesTD.resources
         
         public static void waveTick()
         {
-            if (!betweenWaves && Form1.gameStarted)
+            if (Form1.gameStarted || Form1.isFast)
             {
                 if (interval == waveInterval)
                 {
@@ -146,64 +146,85 @@ namespace ShapesTD.resources
                                 Form1.enemies.Add(new BaseEnemy(Form1.bluecircle, Form1.startPos, 15));
                                 break;
                             case "greencircle":
-                                Form1.enemies.Add(new BaseEnemy(Form1.greencircle, Form1.startPos, 30, 2, 2));
+                                Form1.enemies.Add(new BaseEnemy(Form1.greencircle, Form1.startPos, 30, 2, 2, 15));
                                 break;
                             case "yellowcircle":
-                                Form1.enemies.Add(new BaseEnemy(Form1.yellowcircle, Form1.startPos, 45, 3, 3));
+                                Form1.enemies.Add(new BaseEnemy(Form1.yellowcircle, Form1.startPos, 45, 3, 3, 20));
                                 break;
                             case "orangecircle":
-                                Form1.enemies.Add(new BaseEnemy(Form1.orangecircle, Form1.startPos, 60, 3, 3));
+                                Form1.enemies.Add(new BaseEnemy(Form1.orangecircle, Form1.startPos, 60, 3, 3, 25));
                                 break;
                             case "redcircle":
-                                Form1.enemies.Add(new BaseEnemy(Form1.redcircle, Form1.startPos, 75, 3, 3));
+                                Form1.enemies.Add(new BaseEnemy(Form1.redcircle, Form1.startPos, 75, 3, 3, 30));
                                 break;
                             case "purplecircle":
-                                Form1.enemies.Add(new BaseEnemy(Form1.purplecircle, Form1.startPos, 90, 4, 3));
+                                Form1.enemies.Add(new BaseEnemy(Form1.purplecircle, Form1.startPos, 90, 4, 3, 35));
                                 break;
                             case "whitecircle":
-                                Form1.enemies.Add(new BaseEnemy(Form1.whitecircle, Form1.startPos, 2000, 1, 10));
+                                Form1.enemies.Add(new BaseEnemy(Form1.whitecircle, Form1.startPos, 2000, 1, 10, 100));
                                 break;
                             case "bluetri":
-                                Form1.enemies.Add(new BaseEnemy(Form1.bluetri, Form1.startPos, 60, 1, 3));
+                                Form1.enemies.Add(new BaseEnemy(Form1.bluetri, Form1.startPos, 60, 1, 3, 50));
                                 break;
                             case "greentri":
-                                Form1.enemies.Add(new BaseEnemy(Form1.greentri, Form1.startPos, 120, 2, 3));
+                                Form1.enemies.Add(new BaseEnemy(Form1.greentri, Form1.startPos, 120, 2, 3, 60));
                                 break;
                             case "yellowtri":
-                                Form1.enemies.Add(new BaseEnemy(Form1.yellowtri, Form1.startPos, 180, 3, 3));
+                                Form1.enemies.Add(new BaseEnemy(Form1.yellowtri, Form1.startPos, 180, 3, 3, 70));
                                 break;
                             case "orangetri":
-                                Form1.enemies.Add(new BaseEnemy(Form1.orangetri, Form1.startPos, 240, 4, 4));
+                                Form1.enemies.Add(new BaseEnemy(Form1.orangetri, Form1.startPos, 240, 4, 4, 80));
                                 break;
                             case "redtri":
-                                Form1.enemies.Add(new BaseEnemy(Form1.redtri, Form1.startPos, 300, 4, 4));
+                                Form1.enemies.Add(new BaseEnemy(Form1.redtri, Form1.startPos, 300, 4, 4, 90));
                                 break;
                             case "purpletri":
-                                Form1.enemies.Add(new BaseEnemy(Form1.purpletri, Form1.startPos, 360, 5, 4));
+                                Form1.enemies.Add(new BaseEnemy(Form1.purpletri, Form1.startPos, 360, 5, 4, 100));
                                 break;
                             case "whitetri":
-                                Form1.enemies.Add(new BaseEnemy(Form1.whitetri, Form1.startPos, 4000, 1, 25));
+                                Form1.enemies.Add(new BaseEnemy(Form1.whitetri, Form1.startPos, 4000, 1, 25, 1000));
                                 break;
                             case "bluerect":
-                                Form1.enemies.Add(new BaseEnemy(Form1.bluerect, Form1.startPos, 240, 2, 4));
+                                Form1.enemies.Add(new BaseEnemy(Form1.bluerect, Form1.startPos, 240, 2, 150));
                                 break;
                             case "greenrect":
-                                Form1.enemies.Add(new BaseEnemy(Form1.greenrect, Form1.startPos, 580, 3, 4));
+                                Form1.enemies.Add(new BaseEnemy(Form1.greenrect, Form1.startPos, 580, 3, 300));
                                 break;
                             case "yellowrect":
-                                Form1.enemies.Add(new BaseEnemy(Form1.yellowrect, Form1.startPos, 820, 4, 4));
+                                Form1.enemies.Add(new BaseEnemy(Form1.yellowrect, Form1.startPos, 820, 4, 400));
                                 break;
                             case "orangerect":
-                                Form1.enemies.Add(new BaseEnemy(Form1.orangerect, Form1.startPos, 1060, 4, 5));
+                                Form1.enemies.Add(new BaseEnemy(Form1.orangerect, Form1.startPos, 1060, 4, 500));
                                 break;
                             case "redrect":
-                                Form1.enemies.Add(new BaseEnemy(Form1.redrect, Form1.startPos, 1300, 5, 5));
+                                Form1.enemies.Add(new BaseEnemy(Form1.redrect, Form1.startPos, 1300, 5, 600));
                                 break;
                             case "purplerect":
-                                Form1.enemies.Add(new BaseEnemy(Form1.purplerect, Form1.startPos, 1540, 6, 6));
+                                Form1.enemies.Add(new BaseEnemy(Form1.purplerect, Form1.startPos, 1540, 6, 750));
                                 break;
                             case "whiterect":
-                                Form1.enemies.Add(new BaseEnemy(Form1.whiterect, Form1.startPos, 8000, 1, 50));
+                                Form1.enemies.Add(new BaseEnemy(Form1.whiterect, Form1.startPos, 8000, 1, 5000));
+                                break;
+                            case "bluepent":
+                                Form1.enemies.Add(new BaseEnemy(Form1.bluepent, Form1.startPos, 1060, 3, 1000));
+                                break;
+                            case "greenpent":
+                                Form1.enemies.Add(new BaseEnemy(Form1.greenpent, Form1.startPos, 2120, 3, 1250));
+                                break;
+                            case "yellowpent":
+                                Form1.enemies.Add(new BaseEnemy(Form1.yellowpent, Form1.startPos, 4240, 4, 2500));
+                                break;
+                            case "orangepent":
+                                Form1.enemies.Add(new BaseEnemy(Form1.orangepent, Form1.startPos, 8480, 5, 3500));
+                                break;
+                            case "redpent":
+                                Form1.enemies.Add(new BaseEnemy(Form1.redpent, Form1.startPos, 16960, 6, 4500));
+                                break;
+                            case "purplepent":
+                                Form1.enemies.Add(new BaseEnemy(Form1.purplepent, Form1.startPos, 33920, 7, 6000));
+                                break;
+                            case "whitepent":
+                                //Form1.enemies.Add(new BaseEnemy(Form1.whitepent, Form1.startPos, 50000, 1, 10000));
                                 break;
                             default:
                                 MessageBox.Show("Error: Type received at Form1.timerTick Wave Handler, is invalid.");
@@ -218,6 +239,7 @@ namespace ShapesTD.resources
                             //MessageBox.Show("Wave " + wave);
                             Form1.wave++;
                             betweenWaves = true;
+                            Form1.gameStarted = false;
                         }
                         //Get next enemy type and quantity
                         waveInterval = ((WaveHandler.wave) Form1.waves[Form1.wave]).getWaveInterval();
@@ -233,6 +255,7 @@ namespace ShapesTD.resources
                     interval++;
                 }
             }
+            /*
             else
             {
                 //Between Waves
@@ -245,7 +268,7 @@ namespace ShapesTD.resources
                     currIntervalBetweenWaves = 0;
                     betweenWaves = false;
                 }
-            }
+            }*/
         }
     }
 }

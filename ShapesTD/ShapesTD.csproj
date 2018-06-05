@@ -91,6 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="resources\bluecircle.png" />
+      <Content Include="resources\bluepentagon.png"/>
     <Content Include="resources\bluerect.png" />
     <Content Include="resources\bluetri.png" />
     <Content Include="resources\bullettower.png" />
@@ -98,10 +99,12 @@
       <Content Include="resources\cannontower.png"/>
     <Content Include="resources\coin.png" />
     <Content Include="resources\dirt.png" />
+      <Content Include="resources\fast.png"/>
       <Content Include="resources\freezesound.wav"/>
     <Content Include="resources\freezetower.png" />
     <Content Include="resources\grass.png" />
     <Content Include="resources\greencircle.png" />
+      <Content Include="resources\greenpentagon.png"/>
     <Content Include="resources\greenrect.png" />
     <Content Include="resources\greentri.png" />
     <Content Include="resources\heart.png" />
@@ -109,24 +112,31 @@
       <Content Include="resources\icon.ico"/>
     <Content Include="resources\lasertower.png" />
     <Content Include="resources\levelWaves.dat" />
+      <Content Include="resources\machineguntower.png"/>
     <Content Include="resources\orangecircle.png" />
+      <Content Include="resources\orangepentagon.png"/>
     <Content Include="resources\orangerect.png" />
     <Content Include="resources\orangetri.png" />
       <Content Include="resources\pause.png"/>
     <Content Include="resources\play.png" />
     <Content Include="resources\purplecircle.png" />
+      <Content Include="resources\purplepentagon.png"/>
     <Content Include="resources\purplerect.png" />
     <Content Include="resources\purpletri.png" />
     <Content Include="resources\redcircle.png" />
+      <Content Include="resources\redpentagon.png"/>
     <Content Include="resources\redrect.png" />
     <Content Include="resources\redtri.png" />
+      <Content Include="resources\sell.png"/>
       <Content Include="resources\silent.wav"/>
+      <Content Include="resources\slow.png"/>
     <Content Include="resources\steel.png" />
     <Content Include="resources\wave.png" />
     <Content Include="resources\whitecircle.png" />
     <Content Include="resources\whiterect.png" />
     <Content Include="resources\whitetri.png" />
     <Content Include="resources\yellowcircle.png" />
+      <Content Include="resources\yellowpentagon.png"/>
     <Content Include="resources\yellowrect.png" />
     <Content Include="resources\yellowtow.png" />
     <Content Include="resources\yellowtri.png" />

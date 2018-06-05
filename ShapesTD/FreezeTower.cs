@@ -11,7 +11,7 @@ namespace ShapesTD
         private static int shootRate = 150;
         private static int damage = 0;
         private static int radius = 80;
-        private static int cost = 500;
+        private static int cost = 750;
         private int cycle = 0;
         private static string type = "freeze";
         private static SoundPlayer sp = Form1.freezeSound;

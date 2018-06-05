@@ -76,6 +76,7 @@ namespace ShapesTD
                                    scany[i]] == 'E')
                     {
                         Form1.health -= be.getDamage();
+                        Form1.cash += be.GetReward();
                         be.destroyEnemy();
                         //reduce lives here
                         goto main;
