@@ -185,43 +185,43 @@ namespace ShapesTD.resources
                                 Form1.enemies.Add(new BaseEnemy(Form1.whitetri, Form1.startPos, 4000, 1, 25, 1000));
                                 break;
                             case "bluerect":
-                                Form1.enemies.Add(new BaseEnemy(Form1.bluerect, Form1.startPos, 240, 2, 150));
+                                Form1.enemies.Add(new BaseEnemy(Form1.bluerect, Form1.startPos, 240, 2, 4, 150));
                                 break;
                             case "greenrect":
-                                Form1.enemies.Add(new BaseEnemy(Form1.greenrect, Form1.startPos, 580, 3, 300));
+                                Form1.enemies.Add(new BaseEnemy(Form1.greenrect, Form1.startPos, 580, 3, 5, 300));
                                 break;
                             case "yellowrect":
-                                Form1.enemies.Add(new BaseEnemy(Form1.yellowrect, Form1.startPos, 820, 4, 400));
+                                Form1.enemies.Add(new BaseEnemy(Form1.yellowrect, Form1.startPos, 820, 4, 5, 400));
                                 break;
                             case "orangerect":
-                                Form1.enemies.Add(new BaseEnemy(Form1.orangerect, Form1.startPos, 1060, 4, 500));
+                                Form1.enemies.Add(new BaseEnemy(Form1.orangerect, Form1.startPos, 1060, 4, 5, 500));
                                 break;
                             case "redrect":
-                                Form1.enemies.Add(new BaseEnemy(Form1.redrect, Form1.startPos, 1300, 5, 600));
+                                Form1.enemies.Add(new BaseEnemy(Form1.redrect, Form1.startPos, 1300, 5, 6, 600));
                                 break;
                             case "purplerect":
-                                Form1.enemies.Add(new BaseEnemy(Form1.purplerect, Form1.startPos, 1540, 6, 750));
+                                Form1.enemies.Add(new BaseEnemy(Form1.purplerect, Form1.startPos, 1540, 6, 6, 750));
                                 break;
                             case "whiterect":
-                                Form1.enemies.Add(new BaseEnemy(Form1.whiterect, Form1.startPos, 8000, 1, 5000));
+                                Form1.enemies.Add(new BaseEnemy(Form1.whiterect, Form1.startPos, 8000, 1, 99, 5000));
                                 break;
                             case "bluepent":
-                                Form1.enemies.Add(new BaseEnemy(Form1.bluepent, Form1.startPos, 1060, 3, 1000));
+                                Form1.enemies.Add(new BaseEnemy(Form1.bluepent, Form1.startPos, 1060, 3, 5, 1000));
                                 break;
                             case "greenpent":
-                                Form1.enemies.Add(new BaseEnemy(Form1.greenpent, Form1.startPos, 2120, 3, 1250));
+                                Form1.enemies.Add(new BaseEnemy(Form1.greenpent, Form1.startPos, 1500, 3, 6, 1250));
                                 break;
                             case "yellowpent":
-                                Form1.enemies.Add(new BaseEnemy(Form1.yellowpent, Form1.startPos, 4240, 4, 2500));
+                                Form1.enemies.Add(new BaseEnemy(Form1.yellowpent, Form1.startPos, 2000, 4, 8, 2500));
                                 break;
                             case "orangepent":
-                                Form1.enemies.Add(new BaseEnemy(Form1.orangepent, Form1.startPos, 8480, 5, 3500));
+                                Form1.enemies.Add(new BaseEnemy(Form1.orangepent, Form1.startPos, 2500, 5, 10, 3500));
                                 break;
                             case "redpent":
-                                Form1.enemies.Add(new BaseEnemy(Form1.redpent, Form1.startPos, 16960, 6, 4500));
+                                Form1.enemies.Add(new BaseEnemy(Form1.redpent, Form1.startPos, 3000, 6, 20, 4500));
                                 break;
                             case "purplepent":
-                                Form1.enemies.Add(new BaseEnemy(Form1.purplepent, Form1.startPos, 33920, 7, 6000));
+                                Form1.enemies.Add(new BaseEnemy(Form1.purplepent, Form1.startPos, 5000, 7, 25, 6000));
                                 break;
                             case "whitepent":
                                 //Form1.enemies.Add(new BaseEnemy(Form1.whitepent, Form1.startPos, 50000, 1, 10000));

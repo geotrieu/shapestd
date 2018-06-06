@@ -101,6 +101,11 @@ namespace ShapesTD
                     Point ptTower = new Point(bp.GetTower().getLocation().X + 15, bp.GetTower().getLocation().Y + 15);
                     Point ptEnemy = new Point(bp.GetEnemy().getLocation().X + 15, bp.GetEnemy().getLocation().Y + 15);
                     Form1.offscreen.DrawLine(new Pen(Color.OrangeRed, 3), ptTower, ptEnemy);
+                } else if (bp.GetTower().GetTowerType() == "machinegun")
+                {
+                    Point ptTower = new Point(bp.GetTower().getLocation().X + 15, bp.GetTower().getLocation().Y + 15);
+                    Point ptEnemy = new Point(bp.GetEnemy().getLocation().X + 15, bp.GetEnemy().getLocation().Y + 15);
+                    Form1.offscreen.DrawLine(new Pen(Color.Pink, 3), ptTower, ptEnemy);
                 }
             }
             

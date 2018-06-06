@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*****************************************************
+ * Name: George Trieu
+ * Date: 2018-06-05
+ * Title: Pathfinding Class
+ * Purpose: To move the enemies along the dynamic path.
+ ****************************************************/
+using System;
 using System.Drawing;
 
 namespace ShapesTD

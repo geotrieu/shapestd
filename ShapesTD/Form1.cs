@@ -359,35 +359,47 @@ namespace ShapesTD
 
                     if (valid)
                     {
-                        BaseTower bt = null;
                         if (pickedUp == "bullettower")
                         {
-                            bt = new BaseTower(bullettower, tileX * 32, tileY * 32, "bullet");
-                            towers.Add(bt);
+                            if (cash >= 100)
+                            {
+                                towers.Add(new BaseTower(bullettower, tileX * 32, tileY * 32, "bullet"));
+                                cash -= 100;
+                            }
                         }
                         else if (pickedUp == "lasertower")
                         {
-                            bt = new BaseTower(lasertower, tileX * 32, tileY * 32, "laser", 1, 1, 46, 500);
-                            towers.Add(bt);
+                            if (cash >= 500)
+                            {
+                                towers.Add(new BaseTower(lasertower, tileX * 32, tileY * 32, "laser", 1, 1, 46, 500));
+                                cash -= 500;
+                            }
                         }
                         else if (pickedUp == "freezetower")
                         {
-                            bt = new FreezeTower(tileX * 32, tileY * 32);
-                            towers.Add(bt);
+                            if (cash >= 750)
+                            {
+                                towers.Add(new FreezeTower(tileX * 32, tileY * 32));
+                                cash -= 750;
+                            }
                         }
                         else if (pickedUp == "cannontower")
                         {
-                            bt = new BaseTower(cannontower, tileX * 32, tileY * 32, "cannon", 50, 250, 112, 1250,
-                                cannonSound);
-                            towers.Add(bt);
+                            if (cash >= 1250)
+                            {
+                                towers.Add(new BaseTower(cannontower, tileX * 32, tileY * 32, "cannon", 50, 250, 112, 1250,
+                                    cannonSound));
+                                cash -= 1250;
+                            }
                         }
                         else if (pickedUp == "machineguntower")
                         {
-                            bt = new BaseTower(machineguntower, tileX * 32, tileY * 32, "machinegun", 1, 25, 46, 10000);
-                            towers.Add(bt);
+                            if (cash >= 10000)
+                            {
+                                towers.Add(new BaseTower(machineguntower, tileX * 32, tileY * 32, "machinegun", 1, 25, 46, 10000));
+                                cash -= 10000;
+                            }
                         }
-
-                        cash -= bt.getCost();
                     }
                 }
             }
