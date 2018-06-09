@@ -15,11 +15,11 @@ Features:
 ![End Game](https://i.imgur.com/v09KGvp.png)  
 *End Game*
 
-#Shapes TD Guidebook
+# Shapes TD Guidebook
 This is the "tutorial" and "how to play" of the game. There is no
 instructions in the game, and hence this should be referred to if
 you have any difficulty in playing the game.
-###Tutorial
+### Tutorial
 To place a tower, press on the tower <u>once</u>, then click on the map
 where you want it to be placed. You may continue to place towers until
 you either don't have enough cash anymore, or you would like to stop.
@@ -48,9 +48,9 @@ That is all you need to know to play the game for now. Below, I have
  listed all the towers, and enemies in the game, which should help
  you plan strategically. Good luck, and I wish your towers the 
  best!
-###Towers
+### Towers
 Towers are built to defend against enemies :)
-#####The Bullet Tower
+##### The Bullet Tower
 ![Bullet Tower](https://i.imgur.com/WkAplU6.png)  
 
 The bullet tower does medium damage, but only does damage to the
@@ -58,14 +58,14 @@ furthest proceding enemy. In addition, it also fires with a delay,
 meaning it does not hit an enemy every tick. It is dirt cheap though.
 Medium Range.
 
-#####The Laser Tower
+##### The Laser Tower
 ![Laser Tower](https://i.imgur.com/JiNcH2i.png)  
 
 The laser tower does minimum damage, but does it every tick to the
 furthest proceding enemy. Has a short range capability, and is not
 that expensive.
 
-#####The Freeze Tower
+##### The Freeze Tower
 ![Freeze Tower](https://i.imgur.com/maejT6V.png)  
 
 The freeze tower freezes the furthest proceding enemy for a few seconds.
@@ -73,7 +73,7 @@ It fires on a medium delay, so place them strategically.Very effective
 against bosses, but requires towers around them to be useful. 
 Moderately ranged, and moderatley expensive.
 
-#####The Cannon Tower
+##### The Cannon Tower
 ![Cannon Tower](https://i.imgur.com/db4ZeNy.png)  
 
 The cannon tower does incredible damage, but does so on a very slow
@@ -81,7 +81,7 @@ delay. Extremely effective against bosses, especailly when paired with
 a freeze tower. Very ineffective against a rush of enemies. Very
 expensive, but has an extreme range.
 
-#####The Machine Gun Tower
+##### The Machine Gun Tower
 ![Machine Gun Tower](https://i.imgur.com/z7JP7tq.png)  
 
 The machine gun tower is a glorified laser tower. It does 25x more
@@ -90,10 +90,10 @@ Extremely effective against a rush of enemies.
 The only downside is that it is insanely expensive, and the range
 is tiny.
 
-###Enemies
+### Enemies
 Enemies are designed to try and rush you and completely eradicate
 your stronghold.
-#####Color Variants
+##### Color Variants
 There are 7 colors of enemies. Each one is progressively more
 diffucult that the last, and the 7th color is the boss (white).  
 
@@ -105,7 +105,7 @@ diffucult that the last, and the 7th color is the boss (white).
 ![Purple Circle](https://i.imgur.com/KEoPHpf.png)
 ![White Circle](https://i.imgur.com/JbBYOmv.png)
 
-#####Shape Variants
+##### Shape Variants
 There are 4 shapes of enemies. Each one represent the "stages" of
 the game. The more sides the shape has, the more difficult it is. 
  
@@ -113,7 +113,7 @@ the game. The more sides the shape has, the more difficult it is.
 ![Purple Triangle](https://i.imgur.com/zscNyJg.png)
 ![Purple Square](https://i.imgur.com/9YW8ZkM.png)
 ![Purple Pentagon](https://i.imgur.com/y1D0ZSk.png)
-#####Bosses
+##### Bosses
 A wave boss occurs at the end of each "stage" (or each shape).
 They are demarked by a distinctive white/grey color, with all 6
 other colors as stripes. They are notoriously more difficult to
@@ -126,7 +126,7 @@ to your stronghold if they hit it.
 ![White Triangle](https://i.imgur.com/hHJLXvf.png)
 ![White Square](https://i.imgur.com/JKrPIYU.png)
 ![White Pentagon](https://i.imgur.com/kbU57L4.png)
-#####Hierarchy of Enemy Difficulty
+##### Hierarchy of Enemy Difficulty
 Shapes take precendence over color. In short, the circles are the
 weakest type of enemy, with the blue circle being the weakest,
 and the white circle being the strongest out of the circles.
