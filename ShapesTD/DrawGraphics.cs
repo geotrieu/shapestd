@@ -5,7 +5,7 @@ namespace ShapesTD
 {
     public class DrawGraphics
     {
-        public static void drawMap()
+        public static void DrawMap()
         {
             for (int x = 0; x < Form1.width; x++)
             {
@@ -31,42 +31,42 @@ namespace ShapesTD
             }
         }
 
-        public static void drawHealth()
+        public static void DrawHealth()
         {
             Form1.offscreen.DrawImage(Form1.heart, new Point(Form1.width * 32 - 85, 8));
             Form1.offscreen.DrawString(Form1.health.ToString(), Form1.defFont, new SolidBrush(Color.Black), new Point(Form1.width * 32 - 65, 8));
         }
 
-        public static void drawCash()
+        public static void DrawCash()
         {
             Form1.offscreen.DrawImage(Form1.coin, new Point(Form1.width * 32 - 85, 40));
             Form1.offscreen.DrawString("$" + Form1.cash, Form1.defFont, new SolidBrush(Color.Black), new Point(Form1.width * 32 - 65, 40));
         }
         
-        public static void drawWave()
+        public static void DrawWave()
         {
             Form1.offscreen.DrawImage(Form1.waveImg, new Point(Form1.width * 32 - 85, 72));
             Form1.offscreen.DrawString("#" + (Form1.wave + 1), Form1.defFont, new SolidBrush(Color.Black), new Point(Form1.width * 32 - 65, 72));
         }
 
-        public static void drawPopUpWave()
+        public static void DrawPopUpWave()
         {
             Form1.offscreen.DrawString("Wave " + (Form1.wave + 1), Form1.bigFont, new SolidBrush(Color.Black), new Point(Form1.width * 32 / 2 - 100, 275));
         }
 
-        public static void drawDebug()
+        public static void DrawDebug()
         {
             Form1.offscreen.DrawString("X: " + Form1.mouseX, Form1.defFont, new SolidBrush(Color.White), new Point(Form1.width * 32 - 96, Form1.height * 32 - 64));
             Form1.offscreen.DrawString("Y: " + Form1.mouseY, Form1.defFont, new SolidBrush(Color.White), new Point(Form1.width * 32 - 96, Form1.height * 32 - 48));
         }
         
-        public static void drawEveryTick()
+        public static void DrawEveryTick()
         {
             //Clear Screen
             Form1.offscreen.Clear(Color.White);
 
             //Draw Level
-            drawMap();
+            DrawMap();
             
             //Draw Debug
             //drawDebug();
@@ -75,12 +75,12 @@ namespace ShapesTD
             foreach (BaseTower bt in Form1.towers)
             {
                 if (Form1.selectedTower == bt)
-                    bt.drawRadius(ref Form1.offscreen);
+                    bt.DrawRadius(ref Form1.offscreen);
             }
             
             foreach (BaseTower bt in Form1.towers)
             {
-                bt.drawTower(ref Form1.offscreen);
+                bt.DrawTower(ref Form1.offscreen);
             }
             
             //Draw Projectiles
@@ -88,37 +88,37 @@ namespace ShapesTD
             {
                 if (bp.GetTower().GetTowerType() == "laser")
                 {
-                    Point ptTower = new Point(bp.GetTower().getLocation().X + 15, bp.GetTower().getLocation().Y + 15);
-                    Point ptEnemy = new Point(bp.GetEnemy().getLocation().X + 15, bp.GetEnemy().getLocation().Y + 15);
+                    Point ptTower = new Point(bp.GetTower().GetLocation().X + 15, bp.GetTower().GetLocation().Y + 15);
+                    Point ptEnemy = new Point(bp.GetEnemy().GetLocation().X + 15, bp.GetEnemy().GetLocation().Y + 15);
                     Form1.offscreen.DrawLine(new Pen(Color.Red, 3), ptTower, ptEnemy);
                 } else if (bp.GetTower().GetTowerType() == "freeze")
                 {
-                    Point ptTower = new Point(bp.GetTower().getLocation().X + 15, bp.GetTower().getLocation().Y + 15);
-                    Point ptEnemy = new Point(bp.GetEnemy().getLocation().X + 15, bp.GetEnemy().getLocation().Y + 15);
+                    Point ptTower = new Point(bp.GetTower().GetLocation().X + 15, bp.GetTower().GetLocation().Y + 15);
+                    Point ptEnemy = new Point(bp.GetEnemy().GetLocation().X + 15, bp.GetEnemy().GetLocation().Y + 15);
                     Form1.offscreen.DrawLine(new Pen(Color.Aqua, 3), ptTower, ptEnemy);
                 } else if (bp.GetTower().GetTowerType() == "bullet")
                 {
-                    Point ptTower = new Point(bp.GetTower().getLocation().X + 15, bp.GetTower().getLocation().Y + 15);
-                    Point ptEnemy = new Point(bp.GetEnemy().getLocation().X + 15, bp.GetEnemy().getLocation().Y + 15);
+                    Point ptTower = new Point(bp.GetTower().GetLocation().X + 15, bp.GetTower().GetLocation().Y + 15);
+                    Point ptEnemy = new Point(bp.GetEnemy().GetLocation().X + 15, bp.GetEnemy().GetLocation().Y + 15);
                     Form1.offscreen.DrawLine(new Pen(Color.OrangeRed, 3), ptTower, ptEnemy);
                 } else if (bp.GetTower().GetTowerType() == "machinegun")
                 {
-                    Point ptTower = new Point(bp.GetTower().getLocation().X + 15, bp.GetTower().getLocation().Y + 15);
-                    Point ptEnemy = new Point(bp.GetEnemy().getLocation().X + 15, bp.GetEnemy().getLocation().Y + 15);
+                    Point ptTower = new Point(bp.GetTower().GetLocation().X + 15, bp.GetTower().GetLocation().Y + 15);
+                    Point ptEnemy = new Point(bp.GetEnemy().GetLocation().X + 15, bp.GetEnemy().GetLocation().Y + 15);
                     Form1.offscreen.DrawLine(new Pen(Color.Pink, 3), ptTower, ptEnemy);
                 }
             }
             
             foreach (BaseEnemy be in Form1.enemies)
             {
-                be.drawEnemy(ref Form1.offscreen);
+                be.DrawEnemy(ref Form1.offscreen);
             }
             //Draw Overlays
-            drawHealth();
-            drawCash();
-            drawWave();
-            ShopControl.drawShop();
-            ShopControl.drawCursorPickup();
+            DrawHealth();
+            DrawCash();
+            DrawWave();
+            ShopControl.DrawShop();
+            ShopControl.DrawCursorPickup();
 
             Form1.dc.DrawImage(Form1.curBitmap, 0, 0);
         }

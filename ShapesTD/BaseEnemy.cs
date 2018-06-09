@@ -15,11 +15,10 @@ namespace ShapesTD
         private int health;
         private int speed;
         private int dmg;
-        private Point loc = new Point();
+        private Point loc;
         private bool[,] visited = new bool[Form1.width, Form1.height];
-        private int lastDir = 0;
-        private bool isFrozen = false;
-        private int frozenTicks = 0;
+        private int lastDir;
+        private int frozenTicks;
         public int pixelsTraversed;
         private int reward;
 
@@ -46,45 +45,40 @@ namespace ShapesTD
         }
 
         //GET FUNCTIONS
-        public int getDamage()
+        public int GetDamage()
         {
             return dmg;
         }
-        public int getMaxHealth()
+        public int GetMaxHealth()
         {
             return maxHealth;
         }
-        public int getHealth()
+        public int GetHealth()
         {
             return health;
         }
 
-        public int getSpeed()
+        public int GetSpeed()
         {
             return speed;
         }
 
-        public Point getLocation()
+        public Point GetLocation()
         {
             return loc;
         }
         
-        public int getLastDir()
+        public int GetLastDir()
         {
             return lastDir;
         }
-
-        public bool IsFrozen()
-        {
-            return isFrozen;
-        }
         
-        public bool isVisited(int tileX, int tileY)
+        public bool IsVisited(int tileX, int tileY)
         {
             return (visited[tileX, tileY] ? true : false);
         }
 
-        public int getFrozenTicks()
+        public int GetFrozenTicks()
         {
             return frozenTicks;
         }
@@ -95,32 +89,27 @@ namespace ShapesTD
         }
 
         //SET FUNCTIONS
-        public void addVisited(int tileX, int tileY)
+        public void AddVisited(int tileX, int tileY)
         {
             visited[tileX, tileY] = true;
         }
 
-        public void setHealth(int health)
+        public void SetHealth(int h)
         {
-            this.health = health;
+            health = h;
         }
         
-        public void setLocation(Point pt)
+        public void SetLocation(Point pt)
         {
             loc = new Point(pt.X, pt.Y);
         }
 
-        public void setLastDir(int i)
+        public void SetLastDir(int i)
         {
             lastDir = i;
         }
 
-        public void setFreeze(bool b)
-        {
-            isFrozen = b;
-        }
-
-        public void destroyEnemy()
+        public void Destroy()
         {
             ArrayList al = BasePair.FindBasePair(Form1.shootingAt, this);
             foreach (BasePair bp in al)
@@ -130,26 +119,20 @@ namespace ShapesTD
             Form1.enemies.Remove(this);
         }
 
-        public void setFrozenTicks(int x)
+        public void SetFrozenTicks(int x)
         {
             frozenTicks = x;
         }
         
         //DRAW FUNCTIONS
-        public void drawEnemy(ref Graphics offscreen)
+        public void DrawEnemy(ref Graphics offscreen)
         {
+            //Sprite
             offscreen.DrawImage(image, loc);
             //Health Bar
             offscreen.DrawRectangle(new Pen(Color.Black), loc.X + 1, loc.Y - 9, 30, 6);
             offscreen.FillRectangle(new SolidBrush(Color.Red), loc.X + 2, loc.Y - 8, 28, 4);
             offscreen.FillRectangle(new SolidBrush(Color.LimeGreen), loc.X + 2, loc.Y - 8, (int) (28 * health / maxHealth), 4);
-            //Debug
-            /*
-            offscreen.FillEllipse(new SolidBrush(Color.Blue), loc.X, loc.Y, 6, 6);
-            offscreen.FillEllipse(new SolidBrush(Color.Blue), loc.X + 31, loc.Y, -6, 6);
-            offscreen.FillEllipse(new SolidBrush(Color.Blue), loc.X + 31, loc.Y + 31, -6, -6);
-            offscreen.FillEllipse(new SolidBrush(Color.Blue), loc.X, loc.Y + 31, 6, -6);
-            */
         }
     }
 }

@@ -111,6 +111,9 @@
     <Content Include="resources\homebase.png" />
       <Content Include="resources\icon.ico"/>
     <Content Include="resources\lasertower.png" />
+      <Content Include="resources\level2.dat"/>
+      <Content Include="resources\level3.dat"/>
+      <Content Include="resources\level4.dat"/>
     <Content Include="resources\levelWaves.dat" />
       <Content Include="resources\machineguntower.png"/>
     <Content Include="resources\orangecircle.png" />
@@ -133,12 +136,12 @@
     <Content Include="resources\steel.png" />
     <Content Include="resources\wave.png" />
     <Content Include="resources\whitecircle.png" />
+      <Content Include="resources\whitepentagon.png"/>
     <Content Include="resources\whiterect.png" />
     <Content Include="resources\whitetri.png" />
     <Content Include="resources\yellowcircle.png" />
       <Content Include="resources\yellowpentagon.png"/>
     <Content Include="resources\yellowrect.png" />
-    <Content Include="resources\yellowtow.png" />
     <Content Include="resources\yellowtri.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

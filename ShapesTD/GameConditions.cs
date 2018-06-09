@@ -4,15 +4,15 @@ namespace ShapesTD
 {
     public class GameConditions
     {
-        public static void checkEnemies()
+        public static void CheckEnemies()
         {
             foreach (BaseTower bt in Form1.towers)
             {
-                bt.checkEnemies();
+                bt.CheckEnemies();
             }
         }
 
-        public static void checkHealth(Form1 f1)
+        public static void CheckHealth(Form1 f1)
         {
             if (Form1.health <= 0)
             {

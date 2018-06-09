@@ -49,6 +49,9 @@
           <e p="icon.ico" t="Include" />
           <e p="lasertower.png" t="Include" />
           <e p="level1.dat" t="Include" />
+          <e p="level2.dat" t="Include" />
+          <e p="level3.dat" t="Include" />
+          <e p="level4.dat" t="Include" />
           <e p="levelWaves.dat" t="Include" />
           <e p="machineguntower.png" t="Include" />
           <e p="orangecircle.png" t="Include" />
@@ -71,12 +74,12 @@
           <e p="steel.png" t="Include" />
           <e p="wave.png" t="Include" />
           <e p="whitecircle.png" t="Include" />
+          <e p="whitepentagon.png" t="Include" />
           <e p="whiterect.png" t="Include" />
           <e p="whitetri.png" t="Include" />
           <e p="yellowcircle.png" t="Include" />
           <e p="yellowpentagon.png" t="Include" />
           <e p="yellowrect.png" t="Include" />
-          <e p="yellowtow.png" t="Include" />
           <e p="yellowtri.png" t="Include" />
         </e>
         <e p="ShapesTD.csproj" t="IncludeRecursive" />

@@ -1,4 +1,12 @@
-﻿using System;
+﻿/*****************************************************
+ * Name: George Trieu
+ * Date: 2018-06-05
+ * Title: BaseTower
+ * Purpose: The object type that control all the methods
+ *          and variables of the Towers
+ ****************************************************/
+using System;
+using System.Collections;
 using System.Drawing;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +28,22 @@ namespace ShapesTD
         private string towerType;
         private SoundPlayer sound;
 
+        /*****************************************************
+        * Name: George Trieu
+        * Date: 2018-06-08
+        * Title: BaseTower Constructor
+        * Purpose: Used to create a new BaseTower object
+        * Inputs: Image img
+        *         int locX
+        *         int locY
+        *         string towerType
+        *         (optional) int shootRate
+        *         (optional) int damage
+        *         (optional) int radius
+        *         (optional) int cost
+        *         (optional) SoundPlayer sp
+        * Returns: None
+        ****************************************************/
         public BaseTower(Image img, int locX, int locY, string towerType, int shootRate = 30, int damage = 15,
             int radius = 80, int cost = 100, SoundPlayer sp = null)
         {
@@ -41,120 +65,181 @@ namespace ShapesTD
                 sound = sp;
             }
         }
-
-        public int getCost()
+        
+        /*****************************************************
+        * Name: George Trieu
+        * Date: 2018-06-08
+        * Title: GetCost
+        * Purpose: Method used to obtain the cost of the tower
+        * Inputs: none
+        * Returns: The cost of the tower (int)
+        ****************************************************/
+        public int GetCost()
         {
             return cost;
         }
-        
-        public Point getLocation()
+
+        /*****************************************************
+        * Name: George Trieu
+        * Date: 2018-06-08
+        * Title: GetLocation
+        * Purpose: Method used to obtain the location of the tower
+        * Inputs: none
+        * Returns: The location of the tower (Point)
+        ****************************************************/
+        public Point GetLocation()
         {
             return loc;
         }
 
-        public int getShootRate()
+        /*****************************************************
+        * Name: George Trieu
+        * Date: 2018-06-08
+        * Title: GetShootRate
+        * Purpose: Method used to obtain the shoot rate of the tower
+        * Inputs: none
+        * Returns: The shoot rate of the tower (int)
+        ****************************************************/
+        public int GetShootRate()
         {
             return shootRate;
         }
 
-        public int getRadius()
+        /*****************************************************
+        * Name: George Trieu
+        * Date: 2018-06-08
+        * Title: GetRadius
+        * Purpose: Method used to obtain the radius of the tower
+        * Inputs: none
+        * Returns: The radius of the tower (int)
+        ****************************************************/
+        public int GetRadius()
         {
             return radius;
         }
 
+        /*****************************************************
+        * Name: George Trieu
+        * Date: 2018-06-08
+        * Title: GetTowerType
+        * Purpose: Method used to obtain the tower type
+        * Inputs: none
+        * Returns: The type of the tower (string)
+        ****************************************************/
         public string GetTowerType()
         {
             return towerType;
         }
 
-        public virtual void checkEnemies()
+        /*****************************************************
+        * Name: George Trieu
+        * Date: 2018-06-08
+        * Title: CheckEnemies
+        * Purpose: Function to detect enemy collisions, and act on them
+        * Inputs: none
+        * Returns: none
+        ****************************************************/
+        public virtual void CheckEnemies()
         {
-            
             //ToDo optomize checkEnemies, check whether there is more enemies or towers, and use that to check the rest.
-                foreach (BaseEnemy be in Form1.enemies)
+            foreach (BaseEnemy be in Form1.enemies)
+            {
+                bool collision = false;
+                if (be.GetHealth() <= 0)
                 {
-                    if (be.getHealth() <= 0)
-                    {
-                        Form1.cash += be.GetReward();
-                        be.destroyEnemy();
+                    Form1.cash += be.GetReward();
+                    be.Destroy();
 
-                        break;
-                    }
-                    int xDiff = Math.Abs(loc.X + 15 - be.getLocation().X);
-                    int yDiff = Math.Abs(loc.Y + 15 - be.getLocation().Y);
-                    if (Math.Pow(radius, 2) >= (Math.Pow(xDiff, 2) + Math.Pow(yDiff, 2)))
+                    break;
+                }
+
+                int xDiff = Math.Abs(loc.X + 15 - be.GetLocation().X);
+                int yDiff = Math.Abs(loc.Y + 15 - be.GetLocation().Y);
+                if (Math.Pow(radius, 2) >= (Math.Pow(xDiff, 2) + Math.Pow(yDiff, 2)))
+                {
+                    if (cycle >= shootRate)
                     {
-                        if (cycle >= shootRate)
+                        be.SetHealth(be.GetHealth() - damage);
+                        if (!Form1.shootingAt.Contains(BasePair.FindBasePair(Form1.shootingAt, this, be)))
                         {
-                            be.setHealth(be.getHealth() - damage);
-                            if (!Form1.shootingAt.Contains(BasePair.FindBasePair(Form1.shootingAt, this, be)))
-                            {
-                                Form1.shootingAt.Add(new BasePair(this, be));
-                            }
-
-                            sound.Play();
+                            Form1.shootingAt.Add(new BasePair(this, be));
                         }
 
+                        sound.Play();
                         break;
                     }
-                    xDiff = Math.Abs(loc.X + 15 - (be.getLocation().X + 31));
-                    yDiff = Math.Abs(loc.Y + 15 - be.getLocation().Y);
-                    if (Math.Pow(radius, 2) >= (Math.Pow(xDiff, 2) + Math.Pow(yDiff, 2)))
-                    {
-                        if (cycle >= shootRate)
-                        {
-                            be.setHealth(be.getHealth() - damage);
-                            if (!Form1.shootingAt.Contains(BasePair.FindBasePair(Form1.shootingAt, this, be)))
-                            {
-                                Form1.shootingAt.Add(new BasePair(this, be));
-                            }
 
-                            sound.Play();
+                    collision = true;
+                }
+
+                xDiff = Math.Abs(loc.X + 15 - (be.GetLocation().X + 31));
+                yDiff = Math.Abs(loc.Y + 15 - be.GetLocation().Y);
+                if (Math.Pow(radius, 2) >= (Math.Pow(xDiff, 2) + Math.Pow(yDiff, 2)))
+                {
+                    if (cycle >= shootRate)
+                    {
+                        be.SetHealth(be.GetHealth() - damage);
+                        if (!Form1.shootingAt.Contains(BasePair.FindBasePair(Form1.shootingAt, this, be)))
+                        {
+                            Form1.shootingAt.Add(new BasePair(this, be));
                         }
 
+                        sound.Play();
                         break;
                     }
-                    xDiff = Math.Abs(loc.X + 15 - (be.getLocation().X + 31));
-                    yDiff = Math.Abs(loc.Y + 15 - (be.getLocation().Y + 31));
-                    if (Math.Pow(radius, 2) >= (Math.Pow(xDiff, 2) + Math.Pow(yDiff, 2)))
-                    {
-                        if (cycle >= shootRate)
-                        {
-                            be.setHealth(be.getHealth() - damage);
-                            if (!Form1.shootingAt.Contains(BasePair.FindBasePair(Form1.shootingAt, this, be)))
-                            {
-                                Form1.shootingAt.Add(new BasePair(this, be));
-                            }
 
-                            sound.Play();
+                    collision = true;
+                }
+
+                xDiff = Math.Abs(loc.X + 15 - (be.GetLocation().X + 31));
+                yDiff = Math.Abs(loc.Y + 15 - (be.GetLocation().Y + 31));
+                if (Math.Pow(radius, 2) >= (Math.Pow(xDiff, 2) + Math.Pow(yDiff, 2)))
+                {
+                    if (cycle >= shootRate)
+                    {
+                        be.SetHealth(be.GetHealth() - damage);
+                        if (!Form1.shootingAt.Contains(BasePair.FindBasePair(Form1.shootingAt, this, be)))
+                        {
+                            Form1.shootingAt.Add(new BasePair(this, be));
                         }
 
+                        sound.Play();
                         break;
                     }
-                    xDiff = Math.Abs(loc.X + 15 - be.getLocation().X);
-                    yDiff = Math.Abs(loc.Y + 15 - (be.getLocation().Y + 31));
-                    if (Math.Pow(radius, 2) >= (Math.Pow(xDiff, 2) + Math.Pow(yDiff, 2)))
-                    {
-                        if (cycle >= shootRate)
-                        {
-                            be.setHealth(be.getHealth() - damage);
-                            if (!Form1.shootingAt.Contains(BasePair.FindBasePair(Form1.shootingAt, this, be)))
-                            {
-                                Form1.shootingAt.Add(new BasePair(this, be));
-                            }
 
-                            sound.Play();
+                    collision = true;
+                }
+
+                xDiff = Math.Abs(loc.X + 15 - be.GetLocation().X);
+                yDiff = Math.Abs(loc.Y + 15 - (be.GetLocation().Y + 31));
+                if (Math.Pow(radius, 2) >= (Math.Pow(xDiff, 2) + Math.Pow(yDiff, 2)))
+                {
+                    if (cycle >= shootRate)
+                    {
+                        be.SetHealth(be.GetHealth() - damage);
+                        if (!Form1.shootingAt.Contains(BasePair.FindBasePair(Form1.shootingAt, this, be)))
+                        {
+                            Form1.shootingAt.Add(new BasePair(this, be));
                         }
 
+                        sound.Play();
                         break;
                     }
-                    //else there is no collision
-                    //Checks if the enemy has left the radius
+
+                    collision = true;
+                }
+
+                //else there is no collision
+                //Checks if the enemy has left the radius
+                if (!collision)
+                {
                     if (Form1.shootingAt.Contains(BasePair.FindBasePair(Form1.shootingAt, this, be)))
                     {
                         Form1.shootingAt.Remove(BasePair.FindBasePair(Form1.shootingAt, this, be));
                     }
+                }
             }
+
             if (cycle >= shootRate)
             {
                 cycle = 0;
@@ -164,15 +249,50 @@ namespace ShapesTD
                 cycle++;
             }
         }
-
-        public void drawTower(ref Graphics offscreen)
+        
+        /*****************************************************
+        * Name: George Trieu
+        * Date: 2018-06-08
+        * Title: DrawTower
+        * Purpose: Function used to draw the graphics of the tower
+        * Inputs: A reference to the Offscreen Graphics object
+        * Returns: none
+        ****************************************************/
+        public void DrawTower(ref Graphics offscreen)
         {
             offscreen.DrawImage(img, loc);
         }
 
-        public void drawRadius(ref Graphics offscreen)
+        /*****************************************************
+        * Name: George Trieu
+        * Date: 2018-06-08
+        * Title: Destroy
+        * Purpose: Function used to destroy itself
+        * Inputs: none
+        * Returns: none
+        ****************************************************/
+        public void Destroy()
         {
-            offscreen.FillEllipse(new SolidBrush(Color.FromArgb(100, 255, 100, 0)), (loc.X + 15 - radius), (loc.Y + 15 - radius), radius * 2, radius * 2);
+            ArrayList al = BasePair.FindBasePair(Form1.shootingAt, this);
+            foreach (BasePair bp in al)
+            {
+                Form1.shootingAt.Remove(bp);
+            }
+            Form1.towers.Remove(this);
+        }
+
+        /*****************************************************
+        * Name: George Trieu
+        * Date: 2018-06-08
+        * Title: DrawTower
+        * Purpose: Function used to draw the radius of the tower
+        * Inputs: A reference to the Offscreen Graphics object
+        * Returns: none
+        ****************************************************/
+        public void DrawRadius(ref Graphics offscreen)
+        {
+            offscreen.FillEllipse(new SolidBrush(Color.FromArgb(100, 255, 100, 0)), (loc.X + 15 - radius),
+                (loc.Y + 15 - radius), radius * 2, radius * 2);
         }
     }
 }

@@ -23,52 +23,53 @@ namespace ShapesTD
         public static Graphics dc;
         public static Bitmap curBitmap;
         public static Graphics offscreen;
-        public static Image grass = Image.FromFile("../../resources/grass.png");
-        public static Image dirt = Image.FromFile("../../resources/dirt.png");
-        public static Image steel = Image.FromFile("../../resources/steel.png");
-        public static Image bluecircle = Image.FromFile("../../resources/bluecircle.png");
-        public static Image greencircle = Image.FromFile("../../resources/greencircle.png");
-        public static Image yellowcircle = Image.FromFile("../../resources/yellowcircle.png");
-        public static Image orangecircle = Image.FromFile("../../resources/orangecircle.png");
-        public static Image redcircle = Image.FromFile("../../resources/redcircle.png");
-        public static Image purplecircle = Image.FromFile("../../resources/purplecircle.png");
-        public static Image whitecircle = Image.FromFile("../../resources/whitecircle.png");
-        public static Image bluetri = Image.FromFile("../../resources/bluetri.png");
-        public static Image greentri = Image.FromFile("../../resources/greentri.png");
-        public static Image yellowtri = Image.FromFile("../../resources/yellowtri.png");
-        public static Image orangetri = Image.FromFile("../../resources/orangetri.png");
-        public static Image redtri = Image.FromFile("../../resources/redtri.png");
-        public static Image purpletri = Image.FromFile("../../resources/purpletri.png");
-        public static Image whitetri = Image.FromFile("../../resources/whitetri.png");
-        public static Image bluerect = Image.FromFile("../../resources/bluerect.png");
-        public static Image greenrect = Image.FromFile("../../resources/greenrect.png");
-        public static Image yellowrect = Image.FromFile("../../resources/yellowrect.png");
-        public static Image orangerect = Image.FromFile("../../resources/orangerect.png");
-        public static Image redrect = Image.FromFile("../../resources/redrect.png");
-        public static Image purplerect = Image.FromFile("../../resources/purplerect.png");
-        public static Image whiterect = Image.FromFile("../../resources/whiterect.png");
-        public static Image bluepent = Image.FromFile("../../resources/bluepentagon.png");
-        public static Image greenpent = Image.FromFile("../../resources/greenpentagon.png");
-        public static Image yellowpent = Image.FromFile("../../resources/yellowpentagon.png");
-        public static Image orangepent = Image.FromFile("../../resources/orangepentagon.png");
-        public static Image redpent = Image.FromFile("../../resources/redpentagon.png");
-        public static Image purplepent = Image.FromFile("../../resources/purplepentagon.png");
-        public static Image bullettower = Image.FromFile("../../resources/bullettower.png");
-        public static Image lasertower = Image.FromFile("../../resources/lasertower.png");
-        public static Image freezetower = Image.FromFile("../../resources/freezetower.png");
-        public static Image cannontower = Image.FromFile("../../resources/cannontower.png");
-        public static Image machineguntower = Image.FromFile("../../resources/machineguntower.png");
-        public static Image homebase = Image.FromFile("../../resources/homebase.png");
-        public static Image heart = Image.FromFile("../../resources/heart.png");
-        public static Image coin = Image.FromFile("../../resources/coin.png");
-        public static Image waveImg = Image.FromFile("../../resources/wave.png");
-        public static Image start = Image.FromFile("../../resources/play.png");
-        public static Image pause = Image.FromFile("../../resources/pause.png");
-        public static Image fast = Image.FromFile("../../resources/fast.png");
-        public static Image slow = Image.FromFile("../../resources/slow.png");
-        public static Image sell = Image.FromFile("../../resources/sell.png");
-        public static Font defFont = new Font(FontFamily.GenericMonospace, 10);
-        public static Font bigFont = new Font(FontFamily.GenericMonospace, 100);
+        public static readonly Image grass = Image.FromFile("../../resources/grass.png");
+        public static readonly Image dirt = Image.FromFile("../../resources/dirt.png");
+        public static readonly Image steel = Image.FromFile("../../resources/steel.png");
+        public static readonly Image bluecircle = Image.FromFile("../../resources/bluecircle.png");
+        public static readonly Image greencircle = Image.FromFile("../../resources/greencircle.png");
+        public static readonly Image yellowcircle = Image.FromFile("../../resources/yellowcircle.png");
+        public static readonly Image orangecircle = Image.FromFile("../../resources/orangecircle.png");
+        public static readonly Image redcircle = Image.FromFile("../../resources/redcircle.png");
+        public static readonly Image purplecircle = Image.FromFile("../../resources/purplecircle.png");
+        public static readonly Image whitecircle = Image.FromFile("../../resources/whitecircle.png");
+        public static readonly Image bluetri = Image.FromFile("../../resources/bluetri.png");
+        public static readonly Image greentri = Image.FromFile("../../resources/greentri.png");
+        public static readonly Image yellowtri = Image.FromFile("../../resources/yellowtri.png");
+        public static readonly Image orangetri = Image.FromFile("../../resources/orangetri.png");
+        public static readonly Image redtri = Image.FromFile("../../resources/redtri.png");
+        public static readonly Image purpletri = Image.FromFile("../../resources/purpletri.png");
+        public static readonly Image whitetri = Image.FromFile("../../resources/whitetri.png");
+        public static readonly Image bluerect = Image.FromFile("../../resources/bluerect.png");
+        public static readonly Image greenrect = Image.FromFile("../../resources/greenrect.png");
+        public static readonly Image yellowrect = Image.FromFile("../../resources/yellowrect.png");
+        public static readonly Image orangerect = Image.FromFile("../../resources/orangerect.png");
+        public static readonly Image redrect = Image.FromFile("../../resources/redrect.png");
+        public static readonly Image purplerect = Image.FromFile("../../resources/purplerect.png");
+        public static readonly Image whiterect = Image.FromFile("../../resources/whiterect.png");
+        public static readonly Image bluepent = Image.FromFile("../../resources/bluepentagon.png");
+        public static readonly Image greenpent = Image.FromFile("../../resources/greenpentagon.png");
+        public static readonly Image yellowpent = Image.FromFile("../../resources/yellowpentagon.png");
+        public static readonly Image orangepent = Image.FromFile("../../resources/orangepentagon.png");
+        public static readonly Image redpent = Image.FromFile("../../resources/redpentagon.png");
+        public static readonly Image purplepent = Image.FromFile("../../resources/purplepentagon.png");
+        public static readonly Image whitepent = Image.FromFile("../../resources/whitepentagon.png");
+        public static readonly Image bullettower = Image.FromFile("../../resources/bullettower.png");
+        public static readonly Image lasertower = Image.FromFile("../../resources/lasertower.png");
+        public static readonly Image freezetower = Image.FromFile("../../resources/freezetower.png");
+        public static readonly Image cannontower = Image.FromFile("../../resources/cannontower.png");
+        public static readonly Image machineguntower = Image.FromFile("../../resources/machineguntower.png");
+        public static readonly Image homebase = Image.FromFile("../../resources/homebase.png");
+        public static readonly Image heart = Image.FromFile("../../resources/heart.png");
+        public static readonly Image coin = Image.FromFile("../../resources/coin.png");
+        public static readonly Image waveImg = Image.FromFile("../../resources/wave.png");
+        public static readonly Image start = Image.FromFile("../../resources/play.png");
+        public static readonly Image pause = Image.FromFile("../../resources/pause.png");
+        public static readonly Image fast = Image.FromFile("../../resources/fast.png");
+        public static readonly Image slow = Image.FromFile("../../resources/slow.png");
+        public static readonly Image sell = Image.FromFile("../../resources/sell.png");
+        public static readonly Font defFont = new Font(FontFamily.GenericMonospace, 10);
+        public static readonly Font bigFont = new Font(FontFamily.GenericMonospace, 100);
 
         //Sound
         public static SoundPlayer silentSound = new SoundPlayer("../../resources/silent.wav");
@@ -94,6 +95,7 @@ namespace ShapesTD
         public static bool gameStarted = false;
         public static ArrayList shootingAt = new ArrayList();
         public static bool isFast = false;
+        public static bool isPaused = false;
 
         //Mouse Variables
         public static int mouseX = 0;
@@ -105,20 +107,16 @@ namespace ShapesTD
             this.ClientSize = new Size(width * 32, height * 32);
             this.Show();
 
-            if (!InitLevel(1))
+            Random r = new Random();
+            int rLevel = r.Next(1, 5);
+            
+            if (!InitLevel(rLevel))
             {
-                Console.WriteLine("Level 1 failed to initialize.");
+                Console.WriteLine("Level " + rLevel + " failed to initialize.");
             }
 
-            //TEMP Create a tower
-            /*towers.Add(new BaseTower(yellowtow, 96, 64));
-            towers.Add(new BaseTower(yellowtow, 128, 192));
-            towers.Add(new BaseTower(yellowtow, 256, 64));
-            towers.Add(new BaseTower(yellowtow, 512 - 32, 64));
-            towers.Add(new BaseTower(bluerect, 512 - 64, 256, 4, 3, 100));*/
-
             //Load Waves
-            WaveHandler.loadWaveData();
+            WaveHandler.LoadWaveData();
 
             //create the onscreen graphics
             dc = this.CreateGraphics();
@@ -130,7 +128,7 @@ namespace ShapesTD
             offscreen = Graphics.FromImage(curBitmap);
         }
 
-        private int sortEnemiesInterval = 1;
+        private const int sortEnemiesInterval = 10;
 
         private int currentTick = 0;
 
@@ -138,8 +136,8 @@ namespace ShapesTD
         private void timer1_Tick(object sender, EventArgs e)
         {
             Pathfinding.MovePath();
-            GameConditions.checkEnemies();
-            GameConditions.checkHealth(this);
+            GameConditions.CheckEnemies();
+            GameConditions.CheckHealth(this);
             //Sort Enemies every sortEnemiesInterval Seconds
             if (currentTick == sortEnemiesInterval)
             {
@@ -153,11 +151,11 @@ namespace ShapesTD
 
             //check if game is finished - aka you won- ToDo
             if (wave <= totalWaves - 1)
-                WaveHandler.waveTick();
-            DrawGraphics.drawEveryTick();
+                WaveHandler.WaveTick();
+            DrawGraphics.DrawEveryTick();
         }
 
-        public bool InitLevel(int level)
+        private static bool InitLevel(int level)
         {
             try
             {
@@ -298,7 +296,14 @@ namespace ShapesTD
                     {
                         if (mouseY >= ShopControl.pauseButton.Y && mouseY <= (ShopControl.pauseButton.Y + 31))
                         {
-                            
+                            isPaused = !isPaused;
+                            if (isPaused)
+                            {
+                                timer1.Enabled = false;
+                            } else
+                            {
+                                timer1.Enabled = true;
+                            }
                         }
                     }
                     
@@ -307,24 +312,31 @@ namespace ShapesTD
                         if (mouseY >= ShopControl.fastslowButton.Y && mouseY <= (ShopControl.fastslowButton.Y + 31))
                         {
                             isFast = !isFast;
+                            if (isFast)
+                            {
+                                gameStarted = true;
+                            }
                         }
                     }
-                    
-                    if (mouseX >= ShopControl.sellButton.X && mouseX <= (ShopControl.sellButton.X + 63))
+
+                    if (selectedTower != null)
                     {
-                        if (mouseY >= ShopControl.sellButton.Y && mouseY <= (ShopControl.sellButton.Y + 31))
+                        if (mouseX >= ShopControl.sellButton.X && mouseX <= (ShopControl.sellButton.X + 63))
                         {
-                            cash += (selectedTower.getCost() / 2);
-                            towers.Remove(selectedTower);
+                            if (mouseY >= ShopControl.sellButton.Y && mouseY <= (ShopControl.sellButton.Y + 31))
+                            {
+                                cash += (selectedTower.GetCost() / 2);
+                                selectedTower.Destroy();
+                            }
                         }
                     }
 
                     bool towerFound = false;
                     foreach (BaseTower bt in towers)
                     {
-                        if (mouseX >= bt.getLocation().X && mouseX <= bt.getLocation().X + 31)
+                        if (mouseX >= bt.GetLocation().X && mouseX <= bt.GetLocation().X + 31)
                         {
-                            if (mouseY >= bt.getLocation().Y && mouseY <= bt.getLocation().Y + 31)
+                            if (mouseY >= bt.GetLocation().Y && mouseY <= bt.GetLocation().Y + 31)
                             {
                                 selectedTower = bt;
                                 towerFound = true;
@@ -347,9 +359,9 @@ namespace ShapesTD
                     bool valid = levelMap[tileX, tileY] == '0';
                     foreach (BaseTower bt in towers)
                     {
-                        if (bt.getLocation().X == (tileX * 32))
+                        if (bt.GetLocation().X == (tileX * 32))
                         {
-                            if (bt.getLocation().Y == (tileY * 32))
+                            if (bt.GetLocation().Y == (tileY * 32))
                             {
                                 valid = false;
                                 break;
@@ -387,7 +399,7 @@ namespace ShapesTD
                         {
                             if (cash >= 1250)
                             {
-                                towers.Add(new BaseTower(cannontower, tileX * 32, tileY * 32, "cannon", 50, 250, 112, 1250,
+                                towers.Add(new BaseTower(cannontower, tileX * 32, tileY * 32, "cannon", 50, 150, 112, 1250,
                                     cannonSound));
                                 cash -= 1250;
                             }

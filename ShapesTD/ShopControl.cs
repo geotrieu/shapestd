@@ -15,7 +15,7 @@ namespace ShapesTD
         public static Point fastslowButton = new Point(Form1.width * 32 - 32, Form1.height * 32 - 64);
         public static Point sellButton = new Point(Form1.width * 32 - 64, Form1.height * 32 - 32);
         
-        public static void drawShop()
+        public static void DrawShop()
         {
             //Bullet Tower
             Form1.offscreen.DrawImage(Form1.bullettower, bulletTower);
@@ -54,7 +54,7 @@ namespace ShapesTD
                 Form1.offscreen.DrawImage(Form1.sell, sellButton);
         }
 
-        public static void drawCursorPickup()
+        public static void DrawCursorPickup()
         {
             if (Form1.pickedUp != null)
             {

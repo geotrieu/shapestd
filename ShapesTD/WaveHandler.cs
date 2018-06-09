@@ -6,39 +6,39 @@ namespace ShapesTD.resources
 {
     public class WaveHandler
     {
-        public struct wave
+        public struct Wave
         {
             private ArrayList enemies;
             private ArrayList quantities;
             private int waveInterval;
 
-            public wave(ArrayList enemies, ArrayList quantities, int waveInterval)
+            public Wave(ArrayList enemies, ArrayList quantities, int waveInterval)
             {
                 this.enemies = enemies;
                 this.quantities = quantities;
                 this.waveInterval = waveInterval;
             }
 
-            public int getWaveInterval()
+            public int GetWaveInterval()
             {
                 return waveInterval;
             }
 
-            public string getNextEnemy()
+            public string GetNextEnemy()
             {
                 string enemy = (string) enemies[0];
                 enemies.RemoveAt(0);
                 return enemy;
             }
 
-            public int getNextQuantity()
+            public int GetNextQuantity()
             {
                 int quantity = (int) quantities[0];
                 quantities.RemoveAt(0);
                 return quantity;
             }
 
-            public bool isFinished()
+            public bool IsFinished()
             {
                 if (enemies.Count.Equals(0) && quantities.Count.Equals(0))
                 {
@@ -55,7 +55,7 @@ namespace ShapesTD.resources
                 return false;
             }
         }
-        public static void loadWaveData()
+        public static void LoadWaveData()
         {
             int totalWaves = 0;
             try
@@ -112,7 +112,7 @@ namespace ShapesTD.resources
                                 }
                             }
                             //No more enemies
-                            Form1.waves.Add(new wave(enemies, quantities, int.Parse(waveInterval)));
+                            Form1.waves.Add(new Wave(enemies, quantities, int.Parse(waveInterval)));
                         }
                     }
                 }
@@ -128,13 +128,13 @@ namespace ShapesTD.resources
         private static int waveInterval = 1;
         private static string currentEnemy = null;
         private static int remainingQuantity = 0;
-        private static int intervalBetweenWaves = 200;
+        private static int intervalBetweenWaves = 600;
         private static int currIntervalBetweenWaves = 0;
         private static bool betweenWaves;
         
-        public static void waveTick()
+        public static void WaveTick()
         {
-            if (Form1.gameStarted || Form1.isFast)
+            if (Form1.gameStarted)
             {
                 if (interval == waveInterval)
                 {
@@ -215,16 +215,16 @@ namespace ShapesTD.resources
                                 Form1.enemies.Add(new BaseEnemy(Form1.yellowpent, Form1.startPos, 2000, 4, 8, 2500));
                                 break;
                             case "orangepent":
-                                Form1.enemies.Add(new BaseEnemy(Form1.orangepent, Form1.startPos, 2500, 5, 10, 3500));
+                                Form1.enemies.Add(new BaseEnemy(Form1.orangepent, Form1.startPos, 3000, 5, 10, 3500));
                                 break;
                             case "redpent":
-                                Form1.enemies.Add(new BaseEnemy(Form1.redpent, Form1.startPos, 3000, 6, 20, 4500));
+                                Form1.enemies.Add(new BaseEnemy(Form1.redpent, Form1.startPos, 6000, 6, 20, 4500));
                                 break;
                             case "purplepent":
-                                Form1.enemies.Add(new BaseEnemy(Form1.purplepent, Form1.startPos, 5000, 7, 25, 6000));
+                                Form1.enemies.Add(new BaseEnemy(Form1.purplepent, Form1.startPos, 10000, 7, 25, 6000));
                                 break;
                             case "whitepent":
-                                //Form1.enemies.Add(new BaseEnemy(Form1.whitepent, Form1.startPos, 50000, 1, 10000));
+                                Form1.enemies.Add(new BaseEnemy(Form1.whitepent, Form1.startPos, 50000, 1, 10000));
                                 break;
                             default:
                                 MessageBox.Show("Error: Type received at Form1.timerTick Wave Handler, is invalid.");
@@ -234,18 +234,20 @@ namespace ShapesTD.resources
                     }
                     else
                     {
-                        if (((WaveHandler.wave) Form1.waves[Form1.wave]).isFinished())
+                        if (((WaveHandler.Wave) Form1.waves[Form1.wave]).IsFinished())
                         {
-                            //MessageBox.Show("Wave " + wave);
                             Form1.wave++;
                             betweenWaves = true;
-                            Form1.gameStarted = false;
+                            if (!Form1.isFast)
+                            {
+                                Form1.gameStarted = false;    
+                            }
                         }
                         //Get next enemy type and quantity
-                        waveInterval = ((WaveHandler.wave) Form1.waves[Form1.wave]).getWaveInterval();
-                        currentEnemy = ((WaveHandler.wave) Form1.waves[Form1.wave]).getNextEnemy();
-                        remainingQuantity = ((WaveHandler.wave) Form1.waves[Form1.wave]).getNextQuantity();
-                        DrawGraphics.drawPopUpWave();
+                        waveInterval = ((Wave) Form1.waves[Form1.wave]).GetWaveInterval();
+                        currentEnemy = ((Wave) Form1.waves[Form1.wave]).GetNextEnemy();
+                        remainingQuantity = ((Wave) Form1.waves[Form1.wave]).GetNextQuantity();
+                        DrawGraphics.DrawPopUpWave();
                     }
 
                     interval = 0;
@@ -255,20 +257,6 @@ namespace ShapesTD.resources
                     interval++;
                 }
             }
-            /*
-            else
-            {
-                //Between Waves
-                if (currIntervalBetweenWaves != intervalBetweenWaves)
-                {
-                    currIntervalBetweenWaves++;
-                }
-                else
-                {
-                    currIntervalBetweenWaves = 0;
-                    betweenWaves = false;
-                }
-            }*/
         }
     }
 }

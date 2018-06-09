@@ -45,5 +45,17 @@ namespace ShapesTD
 
             return result;
         }
+        
+        public static ArrayList FindBasePair(ArrayList al, BaseTower bt)
+        {
+            ArrayList result = new ArrayList();
+            foreach (BasePair bp in al)
+            {
+                if (bp.GetTower() == bt)
+                    result.Add(bp);
+            }
+
+            return result;
+        }
     }
 }
