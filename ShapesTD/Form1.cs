@@ -54,11 +54,20 @@ namespace ShapesTD
         public static readonly Image redpent = Image.FromFile("../../resources/redpentagon.png");
         public static readonly Image purplepent = Image.FromFile("../../resources/purplepentagon.png");
         public static readonly Image whitepent = Image.FromFile("../../resources/whitepentagon.png");
+        public static readonly Image bluehex = Image.FromFile("../../resources/bluehexagon.png");
+        public static readonly Image greenhex = Image.FromFile("../../resources/greenhexagon.png");
+        public static readonly Image yellowhex = Image.FromFile("../../resources/yellowhexagon.png");
+        public static readonly Image orangehex = Image.FromFile("../../resources/orangehexagon.png");
+        public static readonly Image redhex = Image.FromFile("../../resources/redhexagon.png");
+        public static readonly Image purplehex = Image.FromFile("../../resources/purplehexagon.png");
+        public static readonly Image whitehex = Image.FromFile("../../resources/whitehexagon.png");
         public static readonly Image bullettower = Image.FromFile("../../resources/bullettower.png");
         public static readonly Image lasertower = Image.FromFile("../../resources/lasertower.png");
         public static readonly Image freezetower = Image.FromFile("../../resources/freezetower.png");
         public static readonly Image cannontower = Image.FromFile("../../resources/cannontower.png");
         public static readonly Image machineguntower = Image.FromFile("../../resources/machineguntower.png");
+        public static readonly Image volleytower = Image.FromFile("../../resources/volleytower.png");
+        public static readonly Image hearttower = Image.FromFile("../../resources/hearttower.png");
         public static readonly Image homebase = Image.FromFile("../../resources/homebase.png");
         public static readonly Image heart = Image.FromFile("../../resources/heart.png");
         public static readonly Image coin = Image.FromFile("../../resources/coin.png");
@@ -70,6 +79,9 @@ namespace ShapesTD
         public static readonly Image sell = Image.FromFile("../../resources/sell.png");
         public static readonly Font defFont = new Font(FontFamily.GenericMonospace, 10);
         public static readonly Font bigFont = new Font(FontFamily.GenericMonospace, 100);
+        public static readonly Font main = new Font("Arial", 40);
+        public static readonly Font sub = new Font(FontFamily.GenericSerif, 30);
+        public static readonly Font option = new Font(FontFamily.GenericSerif, 20);
 
         //Sound
         public static SoundPlayer silentSound = new SoundPlayer("../../resources/silent.wav");
@@ -95,7 +107,6 @@ namespace ShapesTD
         public static bool gameStarted = false;
         public static ArrayList shootingAt = new ArrayList();
         public static bool isFast = false;
-        public static bool isPaused = false;
 
         //Mouse Variables
         public static int mouseX = 0;
@@ -109,7 +120,7 @@ namespace ShapesTD
 
             Random r = new Random();
             int rLevel = r.Next(1, 5);
-            
+
             if (!InitLevel(rLevel))
             {
                 Console.WriteLine("Level " + rLevel + " failed to initialize.");
@@ -137,7 +148,7 @@ namespace ShapesTD
         {
             Pathfinding.MovePath();
             GameConditions.CheckEnemies();
-            GameConditions.CheckHealth(this);
+            GameConditions.CheckHealth();
             //Sort Enemies every sortEnemiesInterval Seconds
             if (currentTick == sortEnemiesInterval)
             {
@@ -153,6 +164,10 @@ namespace ShapesTD
             if (wave <= totalWaves - 1)
                 WaveHandler.WaveTick();
             DrawGraphics.DrawEveryTick();
+            if (MessageBox.messageActive)
+            {
+                timer1.Enabled = false;
+            }
         }
 
         private static bool InitLevel(int level)
@@ -206,6 +221,32 @@ namespace ShapesTD
         {
             if (e.Button.Equals(MouseButtons.Left))
             {
+                //Menu Controllers
+                if (MessageBox.messageActive)
+                {
+                    if (mouseX >= ((Form1.width * 32 - 112) / 2 + 56 -
+                                   (Form1.offscreen.MeasureString(MessageBox.optionMessage, option).Width / 2) - 8) &&
+                        mouseX <= ((Form1.width * 32 - 112) / 2 + 56 -
+                                   (Form1.offscreen.MeasureString(MessageBox.optionMessage, option).Width / 2) - 8 +
+                                   (Form1.offscreen.MeasureString(MessageBox.optionMessage, option).Width) + 16))
+                    {
+                        if (mouseY >= 248 && mouseY <=
+                            (248 + Form1.offscreen.MeasureString(MessageBox.optionMessage, option).Height + 16))
+                        {
+                            if (MessageBox.optionMessage == "Exit")
+                            {
+                                Application.Exit();
+                            }
+                            else
+                            {
+                                timer1.Enabled = true;
+                            }
+
+                            MessageBox.messageActive = false;
+                        }
+                    }
+                }
+
                 //Click Controllers
                 if (pickedUp == null)
                 {
@@ -266,6 +307,36 @@ namespace ShapesTD
                         }
                     }
 
+                    if (mouseX >= ShopControl.heartTower.X && mouseX <= (ShopControl.heartTower.X + 31))
+                    {
+                        if (mouseY >= ShopControl.heartTower.Y && mouseY <= (ShopControl.heartTower.Y + 31))
+                        {
+                            if (pickedUp == null)
+                            {
+                                if (cash >= 3500)
+                                {
+                                    pickedUp = "hearttower";
+                                    return;
+                                }
+                            }
+                        }
+                    }
+                    
+                    if (mouseX >= ShopControl.volleyTower.X && mouseX <= (ShopControl.volleyTower.X + 31))
+                    {
+                        if (mouseY >= ShopControl.volleyTower.Y && mouseY <= (ShopControl.volleyTower.Y + 31))
+                        {
+                            if (pickedUp == null)
+                            {
+                                if (cash >= 5000)
+                                {
+                                    pickedUp = "volleytower";
+                                    return;
+                                }
+                            }
+                        }
+                    }
+                    
                     if (mouseX >= ShopControl.machineGunTower.X && mouseX <= (ShopControl.machineGunTower.X + 31))
                     {
                         if (mouseY >= ShopControl.machineGunTower.Y && mouseY <= (ShopControl.machineGunTower.Y + 31))
@@ -291,22 +362,15 @@ namespace ShapesTD
                             }
                         }
                     }
-                    
+
                     if (mouseX >= ShopControl.pauseButton.X && mouseX <= (ShopControl.pauseButton.X + 31))
                     {
                         if (mouseY >= ShopControl.pauseButton.Y && mouseY <= (ShopControl.pauseButton.Y + 31))
                         {
-                            isPaused = !isPaused;
-                            if (isPaused)
-                            {
-                                timer1.Enabled = false;
-                            } else
-                            {
-                                timer1.Enabled = true;
-                            }
+                            MessageBox.DisplayOneOptionMessage("Paused", "Wave: " + (wave + 1), "Resume");
                         }
                     }
-                    
+
                     if (mouseX >= ShopControl.fastslowButton.X && mouseX <= (ShopControl.fastslowButton.X + 31))
                     {
                         if (mouseY >= ShopControl.fastslowButton.Y && mouseY <= (ShopControl.fastslowButton.Y + 31))
@@ -399,16 +463,34 @@ namespace ShapesTD
                         {
                             if (cash >= 1250)
                             {
-                                towers.Add(new BaseTower(cannontower, tileX * 32, tileY * 32, "cannon", 50, 150, 112, 1250,
+                                towers.Add(new BaseTower(cannontower, tileX * 32, tileY * 32, "cannon", 50, 150, 112,
+                                    1250,
                                     cannonSound));
                                 cash -= 1250;
+                            }
+                        }
+                        else if (pickedUp == "hearttower")
+                        {
+                            if (cash >= 3500)
+                            {
+                                towers.Add(new HeartTower(tileX * 32, tileY * 32));
+                                cash -= 3500;
+                            }
+                        }
+                        else if (pickedUp == "volleytower")
+                        {
+                            if (cash >= 5000)
+                            {
+                                towers.Add(new VolleyTower(tileX * 32, tileY * 32));
+                                cash -= 5000;
                             }
                         }
                         else if (pickedUp == "machineguntower")
                         {
                             if (cash >= 10000)
                             {
-                                towers.Add(new BaseTower(machineguntower, tileX * 32, tileY * 32, "machinegun", 1, 25, 46, 10000));
+                                towers.Add(new BaseTower(machineguntower, tileX * 32, tileY * 32, "machinegun", 1, 25,
+                                    46, 10000));
                                 cash -= 10000;
                             }
                         }

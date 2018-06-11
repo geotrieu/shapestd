@@ -1,4 +1,14 @@
-﻿using System.Windows.Forms;
+﻿/*****************************************************
+ * Name: George Trieu
+ * Date: 2018-06-05
+ * Title: GameConditions
+ * Purpose: To check the conditions of the game:
+ *          - Each tower checks if an enemy has entered
+ *            its radius
+ *          - Checks the health of the player, and display
+ *            game over if health is 0 or less
+ ****************************************************/
+using System.Windows.Forms;
 
 namespace ShapesTD
 {
@@ -12,14 +22,12 @@ namespace ShapesTD
             }
         }
 
-        public static void CheckHealth(Form1 f1)
+        public static void CheckHealth()
         {
             if (Form1.health <= 0)
             {
                 //Game Over
-                f1.timer1.Enabled = false;
-                MessageBox.Show("Game Over!");
-                Application.Exit();
+                MessageBox.DisplayOneOptionMessage("Game Over!", "Wave: " + (Form1.wave + 1), "Exit");
             }
         }
     }

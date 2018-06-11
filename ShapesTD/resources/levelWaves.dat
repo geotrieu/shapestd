@@ -28,7 +28,7 @@ orangerect 15 redrect 5 greenrect 15 !15
 purpletri 25 bluerect 5 purplerect 5 redrect 15 !25
 purpletri 25 purplerect 5 !5
 whiterect 1 greenrect 25 !15
-bluerect 100 !2
+yellowrect 100 !1
 bluetri 10 bluerect 10 !10
 redrect 25 bluepent 5 greenpent 5 !15
 purplerect 25 bluepent 15 yellowpent 8 !15
@@ -37,4 +37,12 @@ orangepent 15 redpent 5 greenpent 15 !15
 purplerect 25 bluepent 5 purplepent 5 redpent 15 !25
 purplerect 25 purplepent 5 !5
 purplepent 6 purpletri 5 whitepent 1 purplepent 7 bluepent 20 !10
+bluepent 10 bluepent 10 !10
+redpent 25 bluehex 5 greenhex 5 !15
+purplepent 25 bluehex 15 yellowhex 8 !15
+bluehex 20 greenhex 15 orangehex 10 !15
+orangehex 15 redhex 5 greenhex 15 !15
+purplepent 25 bluehex 5 purplehex 5 redhex 15 !25
+purplepent 25 purplehex 5 !5
+purplehex 6 purplepent 5 whitehex 1 purplehex 7 bluehex 20 !10
 purplerect 100 !1000

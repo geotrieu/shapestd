@@ -81,6 +81,22 @@ delay. Extremely effective against bosses, especailly when paired with
 a freeze tower. Very ineffective against a rush of enemies. Very
 expensive, but has an extreme range.
 
+##### The Heart Tower
+![Heart Tower](https://i.imgur.com/aaLzA3J.png)  
+
+The heart tower does little damage over a period of time, however,
+it yields 5 lives per kill! Great to build up lives over time!
+It has an moderate range also.
+
+##### The Volley Tower
+![Volley Tower](https://i.imgur.com/WyJJy52.png)  
+
+The volley tower utilizes special technology in order for it to
+volley a shot at all enemy while it is shooting! Does little to
+moderate damage, but is extremely effective against a large group
+of enemies. Its weakness are bosses, does not really do anything
+to them. Decently expensive to build.
+
 ##### The Machine Gun Tower
 ![Machine Gun Tower](https://i.imgur.com/z7JP7tq.png)  
 
@@ -106,13 +122,14 @@ diffucult that the last, and the 7th color is the boss (white).
 ![White Circle](https://i.imgur.com/JbBYOmv.png)
 
 ##### Shape Variants
-There are 4 shapes of enemies. Each one represent the "stages" of
+There are 5 shapes of enemies. Each one represent the "stages" of
 the game. The more sides the shape has, the more difficult it is. 
  
 ![Purple Circle](https://i.imgur.com/KEoPHpf.png)
 ![Purple Triangle](https://i.imgur.com/zscNyJg.png)
 ![Purple Square](https://i.imgur.com/9YW8ZkM.png)
 ![Purple Pentagon](https://i.imgur.com/y1D0ZSk.png)
+![Purple Hexagon](https://i.imgur.com/sNidJfK.png)
 ##### Bosses
 A wave boss occurs at the end of each "stage" (or each shape).
 They are demarked by a distinctive white/grey color, with all 6
@@ -126,6 +143,7 @@ to your stronghold if they hit it.
 ![White Triangle](https://i.imgur.com/hHJLXvf.png)
 ![White Square](https://i.imgur.com/JKrPIYU.png)
 ![White Pentagon](https://i.imgur.com/kbU57L4.png)
+![White Hexagon](https://i.imgur.com/udRNNbs.png)
 ##### Hierarchy of Enemy Difficulty
 Shapes take precendence over color. In short, the circles are the
 weakest type of enemy, with the blue circle being the weakest,

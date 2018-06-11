@@ -16,6 +16,8 @@
         <e p="Form1.resx" t="Include" />
         <e p="FreezeTower.cs" t="Include" />
         <e p="GameConditions.cs" t="Include" />
+        <e p="HeartTower.cs" t="Include" />
+        <e p="MessageBox.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive" />
         <e p="Pathfinding.cs" t="Include" />
         <e p="Program.cs" t="Include" />
@@ -28,6 +30,7 @@
         </e>
         <e p="resources" t="Include">
           <e p="bluecircle.png" t="Include" />
+          <e p="bluehexagon.png" t="Include" />
           <e p="bluepentagon.png" t="Include" />
           <e p="bluerect.png" t="Include" />
           <e p="bluetri.png" t="Include" />
@@ -41,10 +44,12 @@
           <e p="freezetower.png" t="Include" />
           <e p="grass.png" t="Include" />
           <e p="greencircle.png" t="Include" />
+          <e p="greenhexagon.png" t="Include" />
           <e p="greenpentagon.png" t="Include" />
           <e p="greenrect.png" t="Include" />
           <e p="greentri.png" t="Include" />
           <e p="heart.png" t="Include" />
+          <e p="hearttower.png" t="Include" />
           <e p="homebase.png" t="Include" />
           <e p="icon.ico" t="Include" />
           <e p="lasertower.png" t="Include" />
@@ -55,16 +60,19 @@
           <e p="levelWaves.dat" t="Include" />
           <e p="machineguntower.png" t="Include" />
           <e p="orangecircle.png" t="Include" />
+          <e p="orangehexagon.png" t="Include" />
           <e p="orangepentagon.png" t="Include" />
           <e p="orangerect.png" t="Include" />
           <e p="orangetri.png" t="Include" />
           <e p="pause.png" t="Include" />
           <e p="play.png" t="Include" />
           <e p="purplecircle.png" t="Include" />
+          <e p="purplehexagon.png" t="Include" />
           <e p="purplepentagon.png" t="Include" />
           <e p="purplerect.png" t="Include" />
           <e p="purpletri.png" t="Include" />
           <e p="redcircle.png" t="Include" />
+          <e p="redhexagon.png" t="Include" />
           <e p="redpentagon.png" t="Include" />
           <e p="redrect.png" t="Include" />
           <e p="redtri.png" t="Include" />
@@ -72,12 +80,15 @@
           <e p="silent.wav" t="Include" />
           <e p="slow.png" t="Include" />
           <e p="steel.png" t="Include" />
+          <e p="volleytower.png" t="Include" />
           <e p="wave.png" t="Include" />
           <e p="whitecircle.png" t="Include" />
+          <e p="whitehexagon.png" t="Include" />
           <e p="whitepentagon.png" t="Include" />
           <e p="whiterect.png" t="Include" />
           <e p="whitetri.png" t="Include" />
           <e p="yellowcircle.png" t="Include" />
+          <e p="yellowhexagon.png" t="Include" />
           <e p="yellowpentagon.png" t="Include" />
           <e p="yellowrect.png" t="Include" />
           <e p="yellowtri.png" t="Include" />
@@ -85,6 +96,7 @@
         <e p="ShapesTD.csproj" t="IncludeRecursive" />
         <e p="ShopControl.cs" t="Include" />
         <e p="SortEnemies.cs" t="Include" />
+        <e p="VolleyTower.cs" t="Include" />
         <e p="WaveHandler.cs" t="Include" />
       </e>
       <e p="ShapesTD.sln" t="IncludeFlat" />

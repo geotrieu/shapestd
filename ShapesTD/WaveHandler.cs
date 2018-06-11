@@ -49,7 +49,7 @@ namespace ShapesTD.resources
                 }
                 else
                 {
-                    MessageBox.Show("Error: WaveHandler.wave.isFinished()");
+                    System.Windows.Forms.MessageBox.Show("Error: WaveHandler.wave.isFinished()");
                 }
 
                 return false;
@@ -120,7 +120,7 @@ namespace ShapesTD.resources
             }
             catch (System.IO.FileLoadException)
             {
-                MessageBox.Show("Error: FileLoadException on WaveHandler.loadWaveData()");
+                System.Windows.Forms.MessageBox.Show("Error: FileLoadException on WaveHandler.loadWaveData()");
             }
         }
 
@@ -224,10 +224,31 @@ namespace ShapesTD.resources
                                 Form1.enemies.Add(new BaseEnemy(Form1.purplepent, Form1.startPos, 10000, 7, 25, 6000));
                                 break;
                             case "whitepent":
-                                Form1.enemies.Add(new BaseEnemy(Form1.whitepent, Form1.startPos, 50000, 1, 10000));
+                                Form1.enemies.Add(new BaseEnemy(Form1.whitepent, Form1.startPos, 50000, 1, 100, 10000));
+                                break;
+                            case "bluehex":
+                                Form1.enemies.Add(new BaseEnemy(Form1.bluehex, Form1.startPos, 3500, 3, 10, 1000));
+                                break;
+                            case "greenhex":
+                                Form1.enemies.Add(new BaseEnemy(Form1.greenhex, Form1.startPos, 7000, 5, 15, 1250));
+                                break;
+                            case "yellowhex":
+                                Form1.enemies.Add(new BaseEnemy(Form1.yellowhex, Form1.startPos, 8000, 7, 20, 2500));
+                                break;
+                            case "orangehex":
+                                Form1.enemies.Add(new BaseEnemy(Form1.orangehex, Form1.startPos, 9000, 9, 25, 3500));
+                                break;
+                            case "redhex":
+                                Form1.enemies.Add(new BaseEnemy(Form1.redhex, Form1.startPos, 10000, 11, 35, 4500));
+                                break;
+                            case "purplehex":
+                                Form1.enemies.Add(new BaseEnemy(Form1.purplehex, Form1.startPos, 12000, 13, 40, 6000));
+                                break;
+                            case "whitehex":
+                                Form1.enemies.Add(new BaseEnemy(Form1.whitehex, Form1.startPos, 100000, 2, 200, 10000));
                                 break;
                             default:
-                                MessageBox.Show("Error: Type received at Form1.timerTick Wave Handler, is invalid.");
+                                System.Windows.Forms.MessageBox.Show("Error: Type received at Form1.timerTick Wave Handler, is invalid.");
                                 break;
                         }
                         remainingQuantity--;

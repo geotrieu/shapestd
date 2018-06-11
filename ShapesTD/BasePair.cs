@@ -1,4 +1,12 @@
-﻿using System.Collections;
+﻿/*****************************************************
+ * Name: George Trieu
+ * Date: 2018-06-05
+ * Title: BasePair
+ * Purpose: This object comprises of a BaseTower and a
+ *          BaseEnemy, and is primairly used for storing
+ *          which enemy is getting shot by which tower.
+ ****************************************************/
+using System.Collections;
 
 namespace ShapesTD
 {
