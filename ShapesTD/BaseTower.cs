@@ -9,6 +9,7 @@ using System;
 using System.Collections;
 using System.Drawing;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Media;
 using System.Text;
@@ -26,7 +27,7 @@ namespace ShapesTD
         private int cycle = 0;
         private int cost;
         private string towerType;
-        private SoundPlayer sound;
+        private string path;
 
         /*****************************************************
         * Name: George Trieu
@@ -45,7 +46,7 @@ namespace ShapesTD
         * Returns: None
         ****************************************************/
         public BaseTower(Image img, int locX, int locY, string towerType, int shootRate = 30, int damage = 15,
-            int radius = 80, int cost = 100, SoundPlayer sp = null)
+            int radius = 80, int cost = 100, String path = null)
         {
             this.img = img;
             int tileX = locX / 32;
@@ -56,14 +57,7 @@ namespace ShapesTD
             this.radius = radius;
             this.cost = cost;
             this.towerType = towerType;
-            if (sp == null)
-            {
-                sound = Form1.silentSound;
-            }
-            else
-            {
-                sound = sp;
-            }
+            this.path = path;
         }
         
         /*****************************************************
@@ -165,7 +159,12 @@ namespace ShapesTD
                             Form1.shootingAt.Add(new BasePair(this, be));
                         }
 
-                        sound.Play();
+                        if (path != null)
+                        {
+                            var sound = new System.Windows.Media.MediaPlayer();
+                            sound.Open(new Uri(path, UriKind.Relative));
+                            sound.Play();
+                        } 
                         break;
                     }
 
@@ -184,7 +183,12 @@ namespace ShapesTD
                             Form1.shootingAt.Add(new BasePair(this, be));
                         }
 
-                        sound.Play();
+                        if (path != null)
+                        {
+                            var sound = new System.Windows.Media.MediaPlayer();
+                            sound.Open(new Uri(path, UriKind.Relative));
+                            sound.Play();
+                        }
                         break;
                     }
 
@@ -203,7 +207,12 @@ namespace ShapesTD
                             Form1.shootingAt.Add(new BasePair(this, be));
                         }
 
-                        sound.Play();
+                        if (path != null)
+                        {
+                            var sound = new System.Windows.Media.MediaPlayer();
+                            sound.Open(new Uri(path, UriKind.Relative));
+                            sound.Play();
+                        }
                         break;
                     }
 
@@ -222,7 +231,12 @@ namespace ShapesTD
                             Form1.shootingAt.Add(new BasePair(this, be));
                         }
 
-                        sound.Play();
+                        if (path != null)
+                        {
+                            var sound = new System.Windows.Media.MediaPlayer();
+                            sound.Open(new Uri(path, UriKind.Relative));
+                            sound.Play();
+                        }
                         break;
                     }
 
@@ -258,9 +272,9 @@ namespace ShapesTD
         * Inputs: A reference to the Offscreen Graphics object
         * Returns: none
         ****************************************************/
-        public void DrawTower(ref Graphics offscreen)
+        public void DrawTower()
         {
-            offscreen.DrawImage(img, loc);
+            Form1.offscreen.DrawImage(img, loc);
         }
 
         /*****************************************************
@@ -289,9 +303,9 @@ namespace ShapesTD
         * Inputs: A reference to the Offscreen Graphics object
         * Returns: none
         ****************************************************/
-        public void DrawRadius(ref Graphics offscreen)
+        public void DrawRadius()
         {
-            offscreen.FillEllipse(new SolidBrush(Color.FromArgb(100, 255, 100, 0)), (loc.X + 15 - radius),
+            Form1.offscreen.FillEllipse(new SolidBrush(Color.FromArgb(100, 255, 100, 0)), (loc.X + 15 - radius),
                 (loc.Y + 15 - radius), radius * 2, radius * 2);
         }
     }

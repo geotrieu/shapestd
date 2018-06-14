@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*****************************************************
+ * Name: George Trieu
+ * Date: 2018-06-05
+ * Title: Form1
+ * Purpose: The main Form that handles all Mouse Clicks,
+ *          Timers, and initialization
+ ****************************************************/
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,6 +30,7 @@ namespace ShapesTD
         public static Graphics dc;
         public static Bitmap curBitmap;
         public static Graphics offscreen;
+        //Images
         public static readonly Image grass = Image.FromFile("../../resources/grass.png");
         public static readonly Image dirt = Image.FromFile("../../resources/dirt.png");
         public static readonly Image steel = Image.FromFile("../../resources/steel.png");
@@ -77,18 +85,13 @@ namespace ShapesTD
         public static readonly Image fast = Image.FromFile("../../resources/fast.png");
         public static readonly Image slow = Image.FromFile("../../resources/slow.png");
         public static readonly Image sell = Image.FromFile("../../resources/sell.png");
+        //Fonts
         public static readonly Font defFont = new Font(FontFamily.GenericMonospace, 10);
-        public static readonly Font bigFont = new Font(FontFamily.GenericMonospace, 100);
         public static readonly Font main = new Font("Arial", 40);
         public static readonly Font sub = new Font(FontFamily.GenericSerif, 30);
         public static readonly Font option = new Font(FontFamily.GenericSerif, 20);
 
-        //Sound
-        public static SoundPlayer silentSound = new SoundPlayer("../../resources/silent.wav");
-        public static SoundPlayer freezeSound = new SoundPlayer("../../resources/freezesound.wav");
-        public static SoundPlayer cannonSound = new SoundPlayer("../../resources/cannonsound.wav");
-
-        //Entities
+        //Entity Arrays
         public static ArrayList enemies = new ArrayList();
         public static ArrayList towers = new ArrayList();
 
@@ -101,7 +104,7 @@ namespace ShapesTD
 
         //Level Variables
         public static int health = 100;
-        public static int cash = 500;
+        public static int cash = 1000;
         public static int wave = 0;
         public static int totalWaves = 0;
         public static bool gameStarted = false;
@@ -140,10 +143,17 @@ namespace ShapesTD
         }
 
         private const int sortEnemiesInterval = 10;
-
         private int currentTick = 0;
-
-        //this code copies offscreen to onscreen
+        /*****************************************************
+        * Name: George Trieu
+        * Date: 2018-06-08
+        * Title: timer1_Tick
+        * Purpose: This function is called with every tick from
+        *          the timer.
+        * Inputs: object sender
+        *         EventArgs e
+        * Returns: nothing
+        ****************************************************/
         private void timer1_Tick(object sender, EventArgs e)
         {
             Pathfinding.MovePath();
@@ -159,17 +169,26 @@ namespace ShapesTD
             {
                 currentTick++;
             }
-
-            //check if game is finished - aka you won- ToDo
-            if (wave <= totalWaves - 1)
-                WaveHandler.WaveTick();
+            WaveHandler.WaveTick();
+            GameConditions.CheckWin();
             DrawGraphics.DrawEveryTick();
             if (MessageBox.messageActive)
             {
                 timer1.Enabled = false;
             }
         }
-
+        
+        /*****************************************************
+        * Name: George Trieu
+        * Date: 2018-06-08
+        * Title: InitLevel
+        * Purpose: Function called when the level is initialized
+        *          from a level.dat file. Posts the map imported
+        *          from the file into the levelMap Array.
+        * Inputs: int level
+        * Returns: Returns a boolean stating the success of the
+        *          level load.
+        ****************************************************/
         private static bool InitLevel(int level)
         {
             try
@@ -211,12 +230,33 @@ namespace ShapesTD
         {
         }
 
+        /*****************************************************
+        * Name: George Trieu
+        * Date: 2018-06-08
+        * Title: Form1_MouseMove
+        * Purpose: Called when the mouse is moved. Updates the
+        *          position of the mouse variables
+        * Inputs: object sender
+        *         MouseEventArgs e
+        * Returns: nothing
+        ****************************************************/
         private void Form1_MouseMove(object sender, MouseEventArgs e)
         {
             mouseX = e.X;
             mouseY = e.Y;
         }
 
+        /*****************************************************
+        * Name: George Trieu
+        * Date: 2018-06-08
+        * Title: Form1_MouseClick
+        * Purpose: Called when the mouse is clicked. Checks the
+        *          position of the mouse to see which button is
+        *          being pressed.
+        * Inputs: object sender
+        *         MouseEventArgs e
+        * Returns: nothing
+        ****************************************************/
         private void Form1_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button.Equals(MouseButtons.Left))
@@ -465,7 +505,7 @@ namespace ShapesTD
                             {
                                 towers.Add(new BaseTower(cannontower, tileX * 32, tileY * 32, "cannon", 50, 150, 112,
                                     1250,
-                                    cannonSound));
+                                    "../../resources/cannonsound.wav"));
                                 cash -= 1250;
                             }
                         }

@@ -1,4 +1,12 @@
-﻿using System.Drawing;
+﻿/*****************************************************
+ * Name: George Trieu
+ * Date: 2018-06-05
+ * Title: MessageBox
+ * Purpose: The ShapesTD.MessageBox class overrides the
+ *          System.MessageBox class by providing a
+ *          GDI MessageBox interface.
+ ****************************************************/
+using System.Drawing;
 using System.Runtime.CompilerServices;
 
 namespace ShapesTD
@@ -9,6 +17,17 @@ namespace ShapesTD
         public static string mainMessage;
         public static string subMessage;
         public static string optionMessage;
+        
+        /*****************************************************
+        * Name: George Trieu
+        * Date: 2018-06-08
+        * Title: DisplayOneOptionMessage
+        * Purpose: Function used to place a message on screen.
+        * Inputs: string mainMessage
+        *         string subMessage
+        *         string optionMessage
+        * Returns: none
+        ****************************************************/
         public static void DisplayOneOptionMessage(string mainMessage, string subMessage, string optionMessage)
         {
             messageActive = true;
@@ -17,6 +36,15 @@ namespace ShapesTD
             MessageBox.optionMessage = optionMessage;
         }
 
+        /*****************************************************
+        * Name: George Trieu
+        * Date: 2018-06-08
+        * Title: DrawTower
+        * Purpose: Function used to draw the messagebox on screen.
+        *          Called every tick when messageActive is true.
+        * Inputs: none
+        * Returns: none
+        ****************************************************/
         public static void DrawMessageBox()
         {
             Form1.offscreen.FillRectangle(new SolidBrush(Color.Gold), 48, 48, Form1.width * 32 - 96,

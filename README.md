@@ -1,9 +1,14 @@
 # ShapesTD
-Written and created by George Trieu.
-Completely written in C#, and is currently still in development.  
+Written and developed by George Trieu.
+Completely written in C#, using GDI.  
+Shapes TD is a tower defense game that involves simple shapes.
+Try and prevent the shapes to get to your stronghold! (Blue Square).
+Each tower has its own abilities and rate of fire, so please check
+below for the specifications of each tower!  
 Features:
 * Randomized Maps
-* 4 "stages" of enemey waves
+* 6 "stages" of enemy waves
+* 42 waves total
 * Bosses
 * 5 types of towers with unique functionality
 * Somewhat visually appealing
@@ -12,7 +17,7 @@ Features:
 ![Early Game](https://i.imgur.com/e19eH0R.png)  
 *Early Game*  
 
-![End Game](https://i.imgur.com/v09KGvp.png)  
+![End Game](https://i.imgur.com/1JuB4zY.png)  
 *End Game*
 
 # Shapes TD Guidebook

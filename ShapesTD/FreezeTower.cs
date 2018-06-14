@@ -22,7 +22,7 @@ namespace ShapesTD
         private static int cost = 750;
         private int cycle = 0;
         private static string type = "freeze";
-        private static SoundPlayer sp = Form1.freezeSound;
+        private static string path = "../../resources/freezesound.wav";
         
         /*****************************************************
         * Name: George Trieu
@@ -40,7 +40,7 @@ namespace ShapesTD
         *         (optional) SoundPlayer sp
         * Returns: None
         ****************************************************/
-        public FreezeTower(int locX, int locY): base(img, locX, locY, type, shootRate, damage, radius, cost, sp)
+        public FreezeTower(int locX, int locY): base(img, locX, locY, type, shootRate, damage, radius, cost, path)
         {
             int tileX = locX / 32;
             int tileY = locY / 32;
@@ -72,6 +72,12 @@ namespace ShapesTD
                             {
                                 Form1.shootingAt.Add(new BasePair(this, be));
                             }
+                            if (path != null)
+                            {
+                                var sound = new System.Windows.Media.MediaPlayer();
+                                sound.Open(new Uri(path, UriKind.Relative));
+                                sound.Play();
+                            } 
 
                             be.SetFrozenTicks(100);
                             break;
@@ -101,6 +107,12 @@ namespace ShapesTD
                             {
                                 Form1.shootingAt.Add(new BasePair(this, be));
                             }
+                            if (path != null)
+                            {
+                                var sound = new System.Windows.Media.MediaPlayer();
+                                sound.Open(new Uri(path, UriKind.Relative));
+                                sound.Play();
+                            } 
 
                             be.SetFrozenTicks(100);
                             break;
@@ -130,6 +142,12 @@ namespace ShapesTD
                             {
                                 Form1.shootingAt.Add(new BasePair(this, be));
                             }
+                            if (path != null)
+                            {
+                                var sound = new System.Windows.Media.MediaPlayer();
+                                sound.Open(new Uri(path, UriKind.Relative));
+                                sound.Play();
+                            } 
 
                             be.SetFrozenTicks(100);
                             break;
@@ -159,6 +177,12 @@ namespace ShapesTD
                             {
                                 Form1.shootingAt.Add(new BasePair(this, be));
                             }
+                            if (path != null)
+                            {
+                                var sound = new System.Windows.Media.MediaPlayer();
+                                sound.Open(new Uri(path, UriKind.Relative));
+                                sound.Play();
+                            } 
 
                             be.SetFrozenTicks(100);
                             break;

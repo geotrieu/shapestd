@@ -1,6 +1,13 @@
-﻿using System;
+﻿/*****************************************************
+ * Name: George Trieu
+ * Date: 2018-06-05
+ * Title: VolleyTower
+ * Purpose: The Volley Tower Class inherits the BaseTower
+ *          class, to provide enhanced functionality
+ *          based on the BaseTower class
+ ****************************************************/
+using System;
 using System.Drawing;
-using System.Media;
 
 namespace ShapesTD
 {
@@ -14,25 +21,8 @@ namespace ShapesTD
         private static int cost = 5000;
         private int cycle = 0;
         private static string type = "volley";
-        private static SoundPlayer sp = Form1.silentSound;
         
-        /*****************************************************
-        * Name: George Trieu
-        * Date: 2018-06-08
-        * Title: FreezeTower Constructor
-        * Purpose: Used to create a new FreezeTower object that inherits its base class
-        * Inputs: Image img
-        *         int locX
-        *         int locY
-        *         string towerType
-        *         (optional) int shootRate
-        *         (optional) int damage
-        *         (optional) int radius
-        *         (optional) int cost
-        *         (optional) SoundPlayer sp
-        * Returns: None
-        ****************************************************/
-        public VolleyTower(int locX, int locY): base(img, locX, locY, type, shootRate, damage, radius, cost, sp)
+        public VolleyTower(int locX, int locY): base(img, locX, locY, type, shootRate, damage, radius, cost)
         {
             int tileX = locX / 32;
             int tileY = locY / 32;

@@ -12,6 +12,15 @@ namespace ShapesTD
 {
     public class DrawGraphics
     {
+        /*****************************************************
+        * Name: George Trieu
+        * Date: 2018-06-08
+        * Title: DrawMap
+        * Purpose: Obtain the map from the array, and draw the map
+        *          on the offscreen.
+        * Inputs: none
+        * Returns: nothing
+        ****************************************************/
         public static void DrawMap()
         {
             for (int x = 0; x < Form1.width; x++)
@@ -38,6 +47,15 @@ namespace ShapesTD
             }
         }
 
+        /*****************************************************
+        * Name: George Trieu
+        * Date: 2018-06-08
+        * Title: DrawHealth
+        * Purpose: Draws the health as part of the overlay on the
+        *          offscreen
+        * Inputs: none
+        * Returns: nothing
+        ****************************************************/
         public static void DrawHealth()
         {
             Form1.offscreen.DrawImage(Form1.heart, new Point(Form1.width * 32 - 85, 8));
@@ -45,6 +63,15 @@ namespace ShapesTD
                 new Point(Form1.width * 32 - 65, 8));
         }
 
+        /*****************************************************
+        * Name: George Trieu
+        * Date: 2018-06-08
+        * Title: DrawCash
+        * Purpose: Draws the cash as part of the overlay on the
+        *          offscreen
+        * Inputs: none
+        * Returns: nothing
+        ****************************************************/
         public static void DrawCash()
         {
             Form1.offscreen.DrawImage(Form1.coin, new Point(Form1.width * 32 - 85, 40));
@@ -52,6 +79,15 @@ namespace ShapesTD
                 new Point(Form1.width * 32 - 65, 40));
         }
 
+        /*****************************************************
+        * Name: George Trieu
+        * Date: 2018-06-08
+        * Title: DrawWave
+        * Purpose: Draws the Wave # as part of the overlay on the
+        *          offscreen
+        * Inputs: none
+        * Returns: nothing
+        ****************************************************/
         public static void DrawWave()
         {
             Form1.offscreen.DrawImage(Form1.waveImg, new Point(Form1.width * 32 - 85, 72));
@@ -59,20 +95,15 @@ namespace ShapesTD
                 new Point(Form1.width * 32 - 65, 72));
         }
 
-        public static void DrawPopUpWave()
-        {
-            Form1.offscreen.DrawString("Wave " + (Form1.wave + 1), Form1.bigFont, new SolidBrush(Color.Black),
-                new Point(Form1.width * 32 / 2 - 100, 275));
-        }
-
-        public static void DrawDebug()
-        {
-            Form1.offscreen.DrawString("X: " + Form1.mouseX, Form1.defFont, new SolidBrush(Color.White),
-                new Point(Form1.width * 32 - 96, Form1.height * 32 - 64));
-            Form1.offscreen.DrawString("Y: " + Form1.mouseY, Form1.defFont, new SolidBrush(Color.White),
-                new Point(Form1.width * 32 - 96, Form1.height * 32 - 48));
-        }
-
+        /*****************************************************
+        * Name: George Trieu
+        * Date: 2018-06-08
+        * Title: DrawEveryTick
+        * Purpose: Function to handle all components drawn on
+        *          screen every tick.
+        * Inputs: none
+        * Returns: nothing
+        ****************************************************/
         public static void DrawEveryTick()
         {
             //Clear Screen
@@ -81,19 +112,15 @@ namespace ShapesTD
             //Draw Level
             DrawMap();
 
-            //Draw Debug
-            //drawDebug();
-
-            //Selected Tower Draw
+            //Selected Tower/Radius Draw
             foreach (BaseTower bt in Form1.towers)
             {
                 if (Form1.selectedTower == bt)
-                    bt.DrawRadius(ref Form1.offscreen);
+                    bt.DrawRadius();
             }
-
             foreach (BaseTower bt in Form1.towers)
             {
-                bt.DrawTower(ref Form1.offscreen);
+                bt.DrawTower();
             }
 
             //Draw Projectiles
@@ -124,10 +151,11 @@ namespace ShapesTD
                     Form1.offscreen.DrawLine(new Pen(Color.Pink, 3), ptTower, ptEnemy);
                 }
             }
-
+            
+            //Draw the enemies on screen
             foreach (BaseEnemy be in Form1.enemies)
             {
-                be.DrawEnemy(ref Form1.offscreen);
+                be.DrawEnemy();
             }
 
             //Draw Overlays
@@ -143,6 +171,7 @@ namespace ShapesTD
                 MessageBox.DrawMessageBox();
             }
 
+            //Push offscreen to onscreen
             Form1.dc.DrawImage(Form1.curBitmap, 0, 0);
         }
     }

@@ -1,11 +1,27 @@
-﻿using System.Collections;
+﻿/*****************************************************
+ * Name: George Trieu
+ * Date: 2018-06-05
+ * Title: WaveHandler
+ * Purpose: The WaveHandler class contains the wave structure,
+ *          and also functions used to handle each wave
+ *          in the "levelWaves.dat" file.
+ ****************************************************/
+using System.Collections;
 using System.IO;
-using System.Windows.Forms;
 
 namespace ShapesTD.resources
 {
     public class WaveHandler
     {
+        /*****************************************************
+        * Name: George Trieu
+        * Date: 2018-06-05
+        * Title: Wave
+        * Purpose: The wave struct is used to contain the
+        *          properties of each wave. Contains all the
+        *          enemies and their quantities in each wave,
+        *          and also how sparse they should be spawned at.
+        ****************************************************/
         public struct Wave
         {
             private ArrayList enemies;
@@ -38,6 +54,18 @@ namespace ShapesTD.resources
                 return quantity;
             }
 
+            /*****************************************************
+            * Name: George Trieu
+            * Date: 2018-06-08
+            * Title: Wave.IsFinished
+            * Purpose: Method used to check if the wave is finished.
+            *          A wave is defined finished if all the enemies
+            *          have been pushed out. Therefore, this method
+            *          checks if there is no more enemies and quantities
+            *          remain in their respective ArrayLists.
+            * Inputs: none
+            * Returns: A boolean value of whether the wave is finished.
+            ****************************************************/
             public bool IsFinished()
             {
                 if (enemies.Count.Equals(0) && quantities.Count.Equals(0))
@@ -55,6 +83,16 @@ namespace ShapesTD.resources
                 return false;
             }
         }
+        /*****************************************************
+        * Name: George Trieu
+        * Date: 2018-06-08
+        * Title: LoadWaveData
+        * Purpose: To read the data from the levelWaves.dat file,
+        *          and create Wave strcts and store them in an
+        *          ArrayList called "waves" in the Form1 class.
+        * Inputs: none
+        * Returns: none
+        ****************************************************/
         public static void LoadWaveData()
         {
             int totalWaves = 0;
@@ -65,9 +103,9 @@ namespace ShapesTD.resources
                     while (sr.Peek() >= 0)
                     {
                         char[] chrArray = sr.ReadLine().ToCharArray();
-                        totalWaves++;
                         if (chrArray[0] != '*')
                         {
+                            totalWaves++;
                             ArrayList enemies = new ArrayList();
                             ArrayList quantities = new ArrayList();
                             string waveInterval = null;
@@ -116,7 +154,7 @@ namespace ShapesTD.resources
                         }
                     }
                 }
-                Form1.totalWaves = totalWaves;
+                Form1.totalWaves = totalWaves - 1;
             }
             catch (System.IO.FileLoadException)
             {
@@ -131,7 +169,19 @@ namespace ShapesTD.resources
         private static int intervalBetweenWaves = 600;
         private static int currIntervalBetweenWaves = 0;
         private static bool betweenWaves;
-        
+        /*****************************************************
+        * Name: George Trieu
+        * Date: 2018-06-08
+        * Title: WaveTick
+        * Purpose: Called every tick the timer is running.
+        *          Has a interval and waveInterval values to
+        *          only run every x amount of ticks. Used to
+        *          spawn enemies according to their waves, by
+        *          obtaining data from the ArrayList of waves,
+        *          and calling methods within the wave struct.
+        * Inputs: none
+        * Returns: none
+        ****************************************************/
         public static void WaveTick()
         {
             if (Form1.gameStarted)
@@ -268,7 +318,6 @@ namespace ShapesTD.resources
                         waveInterval = ((Wave) Form1.waves[Form1.wave]).GetWaveInterval();
                         currentEnemy = ((Wave) Form1.waves[Form1.wave]).GetNextEnemy();
                         remainingQuantity = ((Wave) Form1.waves[Form1.wave]).GetNextQuantity();
-                        DrawGraphics.DrawPopUpWave();
                     }
 
                     interval = 0;

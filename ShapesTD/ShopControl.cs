@@ -1,5 +1,12 @@
-﻿using System.Drawing;
-using ShapesTD.resources;
+﻿/*****************************************************
+ * Name: George Trieu
+ * Date: 2018-06-05
+ * Title: ShopControl
+ * Purpose: The ShopControl Class handles the drawing
+ *          of the shop menu and items, as well as the
+ *          images of the picked up tower.
+ ****************************************************/
+using System.Drawing;
 
 namespace ShapesTD
 {
@@ -17,6 +24,14 @@ namespace ShapesTD
         public static Point fastslowButton = new Point(Form1.width * 32 - 32, Form1.height * 32 - 64);
         public static Point sellButton = new Point(Form1.width * 32 - 64, Form1.height * 32 - 32);
         
+        /*****************************************************
+        * Name: George Trieu
+        * Date: 2018-06-08
+        * Title: DrawShop
+        * Purpose: Handles the drawing of the shop menu and items
+        * Inputs: none
+        * Returns: none
+        ****************************************************/
         public static void DrawShop()
         {
             //Bullet Tower
@@ -62,6 +77,15 @@ namespace ShapesTD
                 Form1.offscreen.DrawImage(Form1.sell, sellButton);
         }
 
+        /*****************************************************
+        * Name: George Trieu
+        * Date: 2018-06-08
+        * Title: DrawCursorPickup
+        * Purpose: Draws the tower and the radius under the mouse
+        *          when the tower is picked up.
+        * Inputs: none
+        * Returns: none
+        ****************************************************/
         public static void DrawCursorPickup()
         {
             if (Form1.pickedUp != null)

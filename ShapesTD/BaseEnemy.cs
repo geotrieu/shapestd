@@ -1,10 +1,12 @@
-﻿using System;
+﻿/*****************************************************
+ * Name: George Trieu
+ * Date: 2018-06-05
+ * Title: BaseEnemy
+ * Purpose: The object type that control all the methods
+ *          and variables of the Enemies
+ ****************************************************/
 using System.Collections;
 using System.Drawing;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ShapesTD
 {
@@ -109,6 +111,17 @@ namespace ShapesTD
             lastDir = i;
         }
 
+        /*****************************************************
+        * Name: George Trieu
+        * Date: 2018-06-08
+        * Title: Destroy
+        * Purpose: Sequence called when it is time for the enemy
+        *          to meet their doom. Removes all instances of them
+        *          on the shootingAt ArrayLists, and removes them
+        *          from the map.
+        * Inputs: none
+        * Returns: nothing
+        ****************************************************/
         public void Destroy()
         {
             ArrayList al = BasePair.FindBasePair(Form1.shootingAt, this);
@@ -124,15 +137,22 @@ namespace ShapesTD
             frozenTicks = x;
         }
         
-        //DRAW FUNCTIONS
-        public void DrawEnemy(ref Graphics offscreen)
+        /*****************************************************
+        * Name: George Trieu
+        * Date: 2018-06-08
+        * Title: DrawEnemy
+        * Purpose: Draws the enemy on the offscreen
+        * Inputs: none
+        * Returns: nothing
+        ****************************************************/
+        public void DrawEnemy()
         {
             //Sprite
-            offscreen.DrawImage(image, loc);
+            Form1.offscreen.DrawImage(image, loc);
             //Health Bar
-            offscreen.DrawRectangle(new Pen(Color.Black), loc.X + 1, loc.Y - 9, 30, 6);
-            offscreen.FillRectangle(new SolidBrush(Color.Red), loc.X + 2, loc.Y - 8, 28, 4);
-            offscreen.FillRectangle(new SolidBrush(Color.LimeGreen), loc.X + 2, loc.Y - 8, (int) (28 * health / maxHealth), 4);
+            Form1.offscreen.DrawRectangle(new Pen(Color.Black), loc.X + 1, loc.Y - 9, 30, 6);
+            Form1.offscreen.FillRectangle(new SolidBrush(Color.Red), loc.X + 2, loc.Y - 8, 28, 4);
+            Form1.offscreen.FillRectangle(new SolidBrush(Color.LimeGreen), loc.X + 2, loc.Y - 8, (int) (28 * health / maxHealth), 4);
         }
     }
 }

@@ -1,7 +1,25 @@
-﻿namespace ShapesTD
+﻿/*****************************************************
+ * Name: George Trieu
+ * Date: 2018-06-05
+ * Title: SortEnemies
+ * Purpose: Every x amount of ticks, the enemies are reordered
+ *          from based on where they are on the path. The closer
+ *          to the exit they are, the earlier in the ArrayList
+ *          they appear. Uses Bubble Sort.
+ ****************************************************/
+namespace ShapesTD
 {
     public class SortEnemies
     {
+        /*****************************************************
+        * Name: George Trieu
+        * Date: 2018-06-08
+        * Title: ReorderEnemies
+        * Purpose: Uses bubble sort to sort the enemies based
+        *          on how far along they are on the map.
+        * Inputs: none
+        * Returns: none
+        ****************************************************/
         public static void ReorderEnemies()
         {
             BaseEnemy temp;

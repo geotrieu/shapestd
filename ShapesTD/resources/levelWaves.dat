@@ -45,4 +45,5 @@ orangehex 15 redhex 5 greenhex 15 !15
 purplepent 25 bluehex 5 purplehex 5 redhex 15 !25
 purplepent 25 purplehex 5 !5
 purplehex 6 purplepent 5 whitehex 1 purplehex 7 bluehex 20 !10
-purplerect 100 !1000
+*Ending Wave, to prevent crashing due to bad coding
+bluerect 1000 !1000
