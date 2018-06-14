@@ -76,7 +76,7 @@ that expensive.
 The freeze tower freezes the furthest proceding enemy for a few seconds.
 It fires on a medium delay, so place them strategically.Very effective
 against bosses, but requires towers around them to be useful. 
-Moderately ranged, and moderatley expensive.
+Moderately ranged, and moderately expensive.
 
 ##### The Cannon Tower
 ![Cannon Tower](https://i.imgur.com/db4ZeNy.png)  
